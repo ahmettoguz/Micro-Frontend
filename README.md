@@ -1,4 +1,9 @@
-# React + TypeScript + Vite
+
+docker build -t micro-frontend-image .
+
+docker run -p 8080:80 --name micro-frontend-container micro-frontend-image
+
+React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
