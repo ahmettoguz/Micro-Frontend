@@ -8,10 +8,10 @@ function App() {
   const makeRequest = async () => {
     try {
       const response = await axios.get(
-        "https://jsonplaceholder.typicode.com/posts/1"
+        "http://localhost:8081/api/health-check"
       );
-      console.log(response.data);
-      return response.data;
+      const rs = response.data.data;
+      return rs;
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -27,7 +27,7 @@ function App() {
       <h1>Micro frontend App</h1>
       <button onClick={handleClick}>Send Request To backend</button>
       <br />
-      {data && <p>{data.title}</p>}
+      {data && <p>{data}</p>}
       <br />
       <img src={frontendImage} alt="" style={{ height: "50px" }} />
     </>
