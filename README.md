@@ -1,35 +1,59 @@
+<h1 id="top" align="center">🚢 Release Version 1.0.0</h1> 
 
-docker build -t micro-frontend-image .
+<br/>
 
-docker run -p 8080:80 --name micro-frontend-container micro-frontend-image
+## 🔍 Table of Contents
 
-React + TypeScript + Vite
+- [Features](#features)
+- [Next Release Features](#next-release-features)
+- [System Startup](#system-startup)
+  - [Developer Mode](#developer-mode)
+  - [Production Mode](#production-mode)
+ 
+<br/>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<h2 id="features">🔥 Features</h2>
 
-Currently, two official plugins are available:
++ The application has been containerized using Docker.
++ Integration with the backend is complete.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<br/>
 
-## Expanding the ESLint configuration
+<h2 id="next-release-features">🚧 Next Release Features</h2>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Env variable support.
+- Internal communication between backend service.
+- Internal communication between email service.
+- TLS/HTTPS support.
 
-- Configure the top-level `parserOptions` property like this:
+<br/>
+  
+<h2 id="system-startup">🚀 System Startup</h2> 
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+<h3 id="developer-mode">🧪 Developer Mode</h3>
+
+#### Using command line
+
+```
+npm run dev
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+#### Using Docker
+
+```
+docker build -t micro-frontend-image .
+
+docker run -d -p 8080:80 --name micro-frontend-container micro-frontend-image
+
+docker ps -a
+
+docker rm -f micro-frontend-container
+```
+
+<br/>
+
+<h3 id="production-mode">⚡Production Mode</h3> 
+
+1. Follow the instructions in the [`Micro-Docker-Config repository`](https://github.com/ahmettoguz/Micro-Docker-Config) to configure Docker for production.
+
+[🔝](#top)
