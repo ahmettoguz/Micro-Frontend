@@ -1,20 +1,29 @@
 import { useState } from "react";
-import { TextField, Button, Box, Paper, Typography, Chip } from "@mui/material";
+import {
+  TextField,
+  Button,
+  Box,
+  Paper,
+  Typography,
+  Chip,
+  CircularProgress,
+} from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import axios from "axios";
 import XSnackbar from "../core-coponents/XSnackbar";
+import LoadingButton from "@mui/lab/LoadingButton";
 
 export default function EmailForm() {
+  const [emailReceivers, setEmailReceivers] = useState([]);
+  const [emailReceiver, setEmailReceiver] = useState("");
+  const [content, setContent] = useState("");
+  const [loading, setLoading] = useState(false);
   const [snackbarConfigs, setSnackbarConfigs] = useState({
     isOpen: false,
     message: "",
     color: "",
   });
-
-  const [emailReceivers, setEmailReceivers] = useState([]);
-  const [emailReceiver, setEmailReceiver] = useState("");
-  const [content, setContent] = useState("");
 
   const theme = useTheme();
 
@@ -41,10 +50,21 @@ export default function EmailForm() {
   };
 
   const handleSend = async () => {
+    if (emailReceivers.length === 0 || !content) {
+      setSnackbarConfigs({
+        isOpen: true,
+        color: "error",
+        message: "Fill required fields!",
+      });
+      return;
+    }
+
     console.log("Sending email to:");
     console.log(emailReceivers);
     console.log("Email content:");
     console.log(content);
+
+    setLoading(true);
 
     try {
       // Dummy request with axios
@@ -69,6 +89,8 @@ export default function EmailForm() {
         color: "error",
         message: "Email could not be sent.",
       });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -180,22 +202,33 @@ export default function EmailForm() {
         />
 
         {/* send button */}
-        <Button
+        <LoadingButton
           variant="contained"
           color="primary"
           onClick={handleSend}
+          loading={loading}
+          disabled={loading}
+          size="large"
+          loadingIndicator={<CircularProgress color="inherit" size={"2em"} />}
           sx={{
-            py: 1.5,
             borderRadius: "8px",
             background:
               "linear-gradient(90deg, rgba(33,150,243,1) 0%, rgba(30,87,153,1) 100%)",
             textTransform: "none",
             fontWeight: "bold",
             boxShadow: "0 4px 10px rgba(33,150,243,0.4)",
+            display: "flex",
+            "&:disabled": {
+              background:
+                "linear-gradient(90deg, rgba(33,150,243,0.5) 0%, rgba(30,87,153,0.5) 100%)",
+            },
+            "& .MuiCircularProgress-root": {
+              color: "white",
+            },
           }}
         >
-          Send
-        </Button>
+          <span>Send</span>
+        </LoadingButton>
       </Box>
 
       <XSnackbar onCallback={setSnackbarConfigs} configs={snackbarConfigs} />
