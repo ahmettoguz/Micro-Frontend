@@ -25,6 +25,7 @@ export default function EmailForm() {
     color: "",
   });
   const [contentError, setContentError] = useState(false);
+  const [receiversError, setReceiversError] = useState(false);
 
   const theme = useTheme();
 
@@ -35,11 +36,12 @@ export default function EmailForm() {
     ) {
       setEmailReceivers([...emailReceivers, emailReceiver.trim()]);
       setEmailReceiver("");
+      setReceiversError(false);
     } else {
       setSnackbarConfigs({
         isOpen: true,
         color: "error",
-        message: "Please add a receiver.",
+        message: "Please add a unique receiver.",
       });
     }
   };
@@ -51,13 +53,30 @@ export default function EmailForm() {
   };
 
   const handleSend = async () => {
-    if (emailReceivers.length === 0 || !content) {
+    let hasError = false;
+
+    // Validate email receivers
+    if (emailReceivers.length === 0) {
+      setReceiversError(true);
+      hasError = true;
+    } else {
+      setReceiversError(false);
+    }
+
+    // Validate content
+    if (!content) {
+      setContentError(true);
+      hasError = true;
+    } else {
+      setContentError(false);
+    }
+
+    if (hasError) {
       setSnackbarConfigs({
         isOpen: true,
         color: "error",
         message: "Fill required fields!",
       });
-      setContentError(!content);
       return;
     }
 
@@ -72,8 +91,6 @@ export default function EmailForm() {
           content,
         }
       );
-
-      console.log("email sent successfully: ", response.data);
 
       setSnackbarConfigs({
         isOpen: true,
@@ -138,6 +155,10 @@ export default function EmailForm() {
             value={emailReceiver}
             onChange={(e) => setEmailReceiver(e.target.value)}
             variant="outlined"
+            error={receiversError}
+            helperText={
+              receiversError ? "At least 1 receiver is required!" : ""
+            }
             sx={{
               "& .MuiOutlinedInput-root": {
                 borderRadius: "8px",
