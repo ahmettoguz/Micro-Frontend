@@ -31,6 +31,10 @@ export default function XSnackbar({ configs, onCallback }) {
       open={configs.isOpen}
       autoHideDuration={2000}
       onClose={handleSnackbarClose}
+      anchorOrigin={{
+        vertical: "bottom",
+        horizontal: "right",
+      }}
     >
       <Alert
         onClose={handleSnackbarClose}

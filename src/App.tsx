@@ -22,7 +22,7 @@ function App() {
 
       <Header toggleTheme={handleThemeToggle} />
 
-      <Container>
+      <Container sx={{ px: { xs: 1, sm: 2 } }}>
         <EmailForm />
       </Container>
     </ThemeProvider>

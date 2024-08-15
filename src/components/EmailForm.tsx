@@ -112,10 +112,11 @@ export default function EmailForm() {
     <Paper
       elevation={3}
       sx={{
-        p: 4,
+        mt: { xs: 1, sm: 4 },
+        px: { xs: 1, sm: 4 },
+        py: 4,
         maxWidth: 600,
         mx: "auto",
-        mt: 5,
         "&:hover": {
           boxShadow:
             theme.palette.mode === "dark"
@@ -148,7 +149,7 @@ export default function EmailForm() {
         autoComplete="off"
       >
         {/* receiver text field */}
-        <Box sx={{ display: "flex", gap: 1 }}>
+        <Box sx={{ display: "flex", gap: 1, alignItems: "flex-start" }}>
           <TextField
             fullWidth
             label="Email Receiver"
@@ -181,6 +182,7 @@ export default function EmailForm() {
               boxShadow: "0 4px 10px rgba(33,150,243,0.4)",
               display: "flex",
               alignItems: "center",
+              minHeight: "4em",
             }}
           >
             <PersonAddIcon />
