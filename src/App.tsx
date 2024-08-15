@@ -1,50 +1,32 @@
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+// src/App.js
+import { useState } from "react";
+import { ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import { Container } from "@mui/material";
+import Header from "./components/Header";
+import { getTheme } from "./utils/theme";
+import EmailForm from "./components/EmailForm";
 
-import React, { useState } from "react";
-
-import { ThemeProvider } from "./utils/ThemeProvider";
-
-import MenuBar from "./components/MenuBar";
-
-import Home from "./components/Home";
-import MyAppBar from "./components/MyAppBar";
-
-import { APP_NAME, APP_DESCRIPTION } from "./utils/envVars";
-import { Container, Typography } from "@mui/material";
-
-// <Container sx={{ bgcolor: "red", height: "100vh" }}>
-//   <Typography variant="h1">Hi there</Typography>
-// </Container>
 function App() {
+  const [themeMode, setThemeMode] = useState("light");
+
+  const theme = getTheme(themeMode);
+
+  const handleThemeToggle = () => {
+    setThemeMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
+  };
+
   return (
-    <ThemeProvider>
-      <MenuBar />
-      {/* <MyAppBar /> */}
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+
+      <Header toggleTheme={handleThemeToggle} />
+
+      <Container>
+        <EmailForm />
+      </Container>
     </ThemeProvider>
   );
-
-  // return (
-  //   <>
-  //     <br />
-  //     <br />
-  //     <strong>App name: </strong> <span>{APP_NAME}</span>
-  //     <br />
-  //     <strong>App description: </strong> <span>{APP_DESCRIPTION}</span>
-  //     <br />
-  //     <hr />
-  //     <div>
-  //       <a href="https://vitejs.dev" target="_blank">
-  //         <img src={viteLogo} className="logo" alt="Vite logo" />
-  //       </a>
-  //       <a href="https://react.dev" target="_blank">
-  //         <img src={reactLogo} className="logo react" alt="React logo" />
-  //       </a>
-  //       <h4>Vite + React</h4>
-  //     </div>
-  //     <hr />
-  //   </>
-  // );
 }
 
 export default App;
