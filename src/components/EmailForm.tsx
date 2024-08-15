@@ -3,10 +3,9 @@ import { TextField, Button, Box, Paper, Typography, Chip } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import axios from "axios";
-import Snackbar from "@mui/material/Snackbar";
-import Alert from "@mui/material/Alert";
+import XSnackbar from "../core-coponents/XSnackbar";
 
-export default function EmailForm(props) {
+export default function EmailForm() {
   const [snackbarConfigs, setSnackbarConfigs] = useState({
     isOpen: false,
     message: "",
@@ -18,14 +17,6 @@ export default function EmailForm(props) {
   const [content, setContent] = useState("");
 
   const theme = useTheme();
-
-  const handleSnackbarClose = (event, reason?) => {
-    if (reason === "clickaway") {
-      return;
-    }
-
-    setSnackbarConfigs((prevConfigs) => ({ ...prevConfigs, isOpen: false }));
-  };
 
   const handleAddReceiver = () => {
     if (
@@ -73,8 +64,6 @@ export default function EmailForm(props) {
         message: "Email sent successfully!",
       });
     } catch (error) {
-      console.error("Error sending email:", error);
-
       setSnackbarConfigs({
         isOpen: true,
         color: "error",
@@ -110,6 +99,8 @@ export default function EmailForm(props) {
       >
         Fill in the details below to send your message.
       </Typography>
+
+      {/* form */}
       <Box
         component="form"
         sx={{
@@ -120,6 +111,7 @@ export default function EmailForm(props) {
         noValidate
         autoComplete="off"
       >
+        {/* receiver text field */}
         <Box sx={{ display: "flex", gap: 1 }}>
           <TextField
             fullWidth
@@ -137,6 +129,7 @@ export default function EmailForm(props) {
               },
             }}
           />
+          {/* add receiver button */}
           <Button
             variant="outlined"
             color="primary"
@@ -154,6 +147,7 @@ export default function EmailForm(props) {
           </Button>
         </Box>
 
+        {/* receivers chips */}
         <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
           {emailReceivers.map((receiver, index) => (
             <Chip
@@ -165,6 +159,7 @@ export default function EmailForm(props) {
           ))}
         </Box>
 
+        {/* email content text field */}
         <TextField
           fullWidth
           label="Email Content"
@@ -183,6 +178,8 @@ export default function EmailForm(props) {
             },
           }}
         />
+
+        {/* send button */}
         <Button
           variant="contained"
           color="primary"
@@ -201,20 +198,7 @@ export default function EmailForm(props) {
         </Button>
       </Box>
 
-      <Snackbar
-        open={snackbarConfigs.isOpen}
-        autoHideDuration={2000}
-        onClose={handleSnackbarClose}
-      >
-        <Alert
-          onClose={handleSnackbarClose}
-          severity={snackbarConfigs.color}
-          variant="filled"
-          sx={{ width: "100%" }}
-        >
-          {snackbarConfigs.message}
-        </Alert>
-      </Snackbar>
+      <XSnackbar onCallback={setSnackbarConfigs} configs={snackbarConfigs} />
     </Paper>
   );
 }
