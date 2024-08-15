@@ -3,20 +3,24 @@ import viteLogo from "/vite.svg";
 
 import React, { useState } from "react";
 
-import { ThemeProvider } from './utils/ThemeProvider';
+import { ThemeProvider } from "./utils/ThemeProvider";
 
-import MenuBar from './components/MenuBar';
+import MenuBar from "./components/MenuBar";
 
 import Home from "./components/Home";
 import MyAppBar from "./components/MyAppBar";
 
 import { APP_NAME, APP_DESCRIPTION } from "./utils/envVars";
+import { Container, Typography } from "@mui/material";
 
+// <Container sx={{ bgcolor: "red", height: "100vh" }}>
+//   <Typography variant="h1">Hi there</Typography>
+// </Container>
 function App() {
   return (
     <ThemeProvider>
       <MenuBar />
-      {/* Add other components here */}
+      {/* <MyAppBar /> */}
     </ThemeProvider>
   );
 
