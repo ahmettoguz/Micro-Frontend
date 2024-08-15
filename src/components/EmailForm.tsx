@@ -24,6 +24,7 @@ export default function EmailForm() {
     message: "",
     color: "",
   });
+  const [contentError, setContentError] = useState(false);
 
   const theme = useTheme();
 
@@ -38,7 +39,7 @@ export default function EmailForm() {
       setSnackbarConfigs({
         isOpen: true,
         color: "error",
-        message: "Please add receiver.",
+        message: "Please add a receiver.",
       });
     }
   };
@@ -56,13 +57,9 @@ export default function EmailForm() {
         color: "error",
         message: "Fill required fields!",
       });
+      setContentError(!content);
       return;
     }
-
-    console.log("Sending email to:");
-    console.log(emailReceivers);
-    console.log("Email content:");
-    console.log(content);
 
     setLoading(true);
 
@@ -186,10 +183,16 @@ export default function EmailForm() {
           fullWidth
           label="Email Content"
           value={content}
-          onChange={(e) => setContent(e.target.value)}
+          onChange={(e) => {
+            setContent(e.target.value);
+            setContentError(false);
+          }}
           multiline
           rows={4}
           variant="outlined"
+          required
+          error={contentError}
+          helperText={contentError ? "Content is required!" : ""}
           sx={{
             "& .MuiOutlinedInput-root": {
               borderRadius: "12px",
