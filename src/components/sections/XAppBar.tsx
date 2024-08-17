@@ -11,7 +11,8 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { useState } from "react";
 import logo from "../../assets/logo.svg";
-import ToggleColorMode from "../../core-coponents/XToggleColorMode";
+import XToggleColorMode from "../../core-coponents/XToggleColorMode";
+import XToggleThemeMode from "../../core-coponents/XToggleThemeMode";
 import { capitalizeFirstLetter } from "../../utils/stringFunctions";
 
 interface LogoStyle {
@@ -28,7 +29,9 @@ const logoStyle: LogoStyle = {
 
 interface XAppBarProps {
   themeMode: PaletteMode;
+  themeSchema: string;
   toggleColorMode: () => void;
+  toggleTheme: () => void;
 }
 
 const leftMenuItemIdList = [
@@ -39,7 +42,12 @@ const leftMenuItemIdList = [
   "faq",
 ];
 
-function XAppBar({ themeMode, toggleColorMode }: XAppBarProps) {
+function XAppBar({
+  themeMode,
+  themeSchema,
+  toggleColorMode,
+  toggleTheme,
+}: XAppBarProps) {
   const [open, setOpen] = useState(false);
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
@@ -103,10 +111,12 @@ function XAppBar({ themeMode, toggleColorMode }: XAppBarProps) {
           alignItems: "center",
         }}
       >
-        <ToggleColorMode
+        <XToggleColorMode
           themeMode={themeMode}
           toggleColorMode={toggleColorMode}
         />
+
+        <XToggleThemeMode themeSchema={themeSchema} toggleTheme={toggleTheme} />
 
         <Button
           color="primary"
@@ -162,7 +172,7 @@ function XAppBar({ themeMode, toggleColorMode }: XAppBarProps) {
                 flexGrow: 1,
               }}
             >
-              <ToggleColorMode
+              <XToggleColorMode
                 themeMode={themeMode}
                 toggleColorMode={toggleColorMode}
               />

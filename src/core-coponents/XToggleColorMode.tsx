@@ -11,7 +11,10 @@ interface ToggleColorModeProps {
   toggleColorMode: () => void;
 }
 
-function ToggleColorMode({ themeMode, toggleColorMode }: ToggleColorModeProps) {
+export default function XToggleColorMode({
+  themeMode,
+  toggleColorMode,
+}: ToggleColorModeProps) {
   return (
     <Tooltip
       placement="bottom"
@@ -35,5 +38,3 @@ function ToggleColorMode({ themeMode, toggleColorMode }: ToggleColorModeProps) {
     </Tooltip>
   );
 }
-
-export default ToggleColorMode;
