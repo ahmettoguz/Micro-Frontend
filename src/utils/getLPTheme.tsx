@@ -198,7 +198,7 @@ const getDesignTokens = (mode: PaletteMode) => ({
   },
 });
 
-export default function getLPTheme(mode: PaletteMode): ThemeOptions {
+export default function getLPTheme(mode: PaletteMode) {
   return {
     ...getDesignTokens(mode),
     components: {
@@ -574,6 +574,20 @@ export default function getLPTheme(mode: PaletteMode): ThemeOptions {
                 borderColor: "primary.main",
                 boxShadow: "0 3px 4px rgba(0,123,255,0.5)",
               },
+            },
+          },
+        },
+      },
+      MuiLoadingButton: {
+        styleOverrides: {
+          root: {
+            boxShadow: "0 3px 4px rgba(0,123,255,0.5)",
+            "&:disabled": {
+              background:
+                "linear-gradient(90deg, rgba(33,150,243,0.5) 0%, rgba(30,87,153,0.5) 100%)",
+            },
+            "& .MuiCircularProgress-root": {
+              color: "white",
             },
           },
         },

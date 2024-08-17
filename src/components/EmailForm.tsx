@@ -228,22 +228,6 @@ export default function EmailForm() {
             disabled={loading}
             size="large"
             loadingIndicator={<CircularProgress color="inherit" size={"2em"} />}
-            sx={{
-              borderRadius: "8px",
-              background:
-                "linear-gradient(90deg, rgba(33,150,243,1) 0%, rgba(30,87,153,1) 100%)",
-              textTransform: "none",
-              fontWeight: "bold",
-              boxShadow: "0 4px 10px rgba(33,150,243,0.4)",
-              display: "flex",
-              "&:disabled": {
-                background:
-                  "linear-gradient(90deg, rgba(33,150,243,0.5) 0%, rgba(30,87,153,0.5) 100%)",
-              },
-              "& .MuiCircularProgress-root": {
-                color: "white",
-              },
-            }}
           >
             <span>Send</span>
           </LoadingButton>
