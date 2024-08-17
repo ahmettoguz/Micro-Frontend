@@ -4,17 +4,18 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState } from "react";
 import EmailForm from "./components/EmailForm";
 import XAppBar from "./components/sections/XAppBar";
+import getLPTheme from "./utils/getLPTheme";
 
 function App() {
   const [themeMode, setThemeMode] = useState<PaletteMode>("light");
-  const theme = createTheme({ palette: { mode: themeMode } });
+  const LPtheme = createTheme(getLPTheme(themeMode));
 
   const toggleColorMode = () => {
     setThemeMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
   };
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={LPtheme}>
       <CssBaseline />
 
       <XAppBar themeMode={themeMode} toggleColorMode={toggleColorMode} />
