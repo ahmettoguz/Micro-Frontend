@@ -9,7 +9,7 @@ import Drawer from "@mui/material/Drawer";
 import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import logo from "../../assets/logo.svg";
 import XToggleColorMode from "../../core-coponents/XToggleColorMode";
 import XToggleThemeMode from "../../core-coponents/XToggleThemeMode";
@@ -44,13 +44,33 @@ const leftMenuItemIdList = [
 const isThemeChangeEnabled =
   import.meta.env.VITE_APP_ENABLE_THEME_CHANGE === "true";
 
-function XAppBar({
+export default function XAppBar({
   themeMode,
   themeSchema,
   toggleColorMode,
   toggleTheme,
 }: XAppBarProps) {
   const [open, setOpen] = useState(false);
+  const [scrolledToBottom, setScrolledToBottom] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+
+      // Check if the user has scrolled to the bottom
+      if (scrollTop > 100) {
+        setScrolledToBottom(true);
+      } else {
+        setScrolledToBottom(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup the event listener on component unmount
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
   };
@@ -237,7 +257,8 @@ function XAppBar({
           boxShadow: 0,
           bgcolor: "transparent",
           backgroundImage: "none",
-          mt: 2,
+          transition: "0.7s ease",
+          mt: scrolledToBottom ? 0 : 3,
         }}
       >
         <Container maxWidth="lg">
@@ -274,5 +295,3 @@ function XAppBar({
     </>
   );
 }
-
-export default XAppBar;
