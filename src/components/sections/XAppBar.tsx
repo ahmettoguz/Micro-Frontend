@@ -39,7 +39,6 @@ const leftMenuItemIdList = [
   "testimonials",
   "highlights",
   "pricing",
-  "faq",
 ];
 
 function XAppBar({
@@ -77,7 +76,8 @@ function XAppBar({
           flexGrow: 1,
           display: "flex",
           alignItems: "center",
-          ml: "-18px",
+          justifyContent: { xs: "center", md: "start" },
+          // ml: "-18px",
           px: 0,
         }}
       >
