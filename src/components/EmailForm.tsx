@@ -110,7 +110,7 @@ export default function EmailForm() {
 
   return (
     <Paper
-      elevation={3}
+      elevation={4}
       sx={{
         mt: { xs: 1, sm: 4 },
         px: { xs: 1, sm: 4 },
@@ -126,9 +126,15 @@ export default function EmailForm() {
         transition: "box-shadow 0.3s ease-in-out",
       }}
     >
-      <Typography variant="h5" gutterBottom sx={{ fontWeight: "bold" }}>
+      <Typography
+        component="h2"
+        variant="h5"
+        gutterBottom
+        sx={{ fontWeight: "bold" }}
+      >
         Send Email
       </Typography>
+
       <Typography
         variant="subtitle1"
         gutterBottom
@@ -160,15 +166,6 @@ export default function EmailForm() {
             helperText={
               receiversError ? "At least 1 receiver is required!" : ""
             }
-            sx={{
-              "& .MuiOutlinedInput-root": {
-                borderRadius: "8px",
-                "&.Mui-focused fieldset": {
-                  borderColor: "primary.main",
-                  boxShadow: "0 0 8px rgba(0,123,255,0.5)",
-                },
-              },
-            }}
           />
           {/* add receiver button */}
           <Button
@@ -190,16 +187,18 @@ export default function EmailForm() {
         </Box>
 
         {/* receivers chips */}
-        <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
-          {emailReceivers.map((receiver, index) => (
-            <Chip
-              key={index}
-              label={receiver}
-              onDelete={() => handleDeleteReceiver(receiver)}
-              sx={{ mb: 1 }}
-            />
-          ))}
-        </Box>
+        {emailReceivers.length !== 0 && (
+          <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
+            {emailReceivers.map((receiver, index) => (
+              <Chip
+                key={index}
+                label={receiver}
+                onDelete={() => handleDeleteReceiver(receiver)}
+                sx={{ mb: 1 }}
+              />
+            ))}
+          </Box>
+        )}
 
         {/* email content text field */}
         <TextField
@@ -216,15 +215,6 @@ export default function EmailForm() {
           required
           error={contentError}
           helperText={contentError ? "Content is required!" : ""}
-          sx={{
-            "& .MuiOutlinedInput-root": {
-              borderRadius: "12px",
-              "&.Mui-focused fieldset": {
-                borderColor: "primary.main",
-                boxShadow: "0 0 3px rgba(0,123,255,0.5)",
-              },
-            },
-          }}
         />
 
         {/* send button */}
