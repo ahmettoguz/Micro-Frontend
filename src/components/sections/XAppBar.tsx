@@ -41,6 +41,9 @@ const leftMenuItemIdList = [
   "pricing",
 ];
 
+const isThemeChangeEnabled =
+  import.meta.env.VITE_APP_ENABLE_THEME_CHANGE === "true";
+
 function XAppBar({
   themeMode,
   themeSchema,
@@ -116,7 +119,12 @@ function XAppBar({
           toggleColorMode={toggleColorMode}
         />
 
-        <XToggleThemeMode themeSchema={themeSchema} toggleTheme={toggleTheme} />
+        {isThemeChangeEnabled && (
+          <XToggleThemeMode
+            themeSchema={themeSchema}
+            toggleTheme={toggleTheme}
+          />
+        )}
 
         <Button
           color="primary"
