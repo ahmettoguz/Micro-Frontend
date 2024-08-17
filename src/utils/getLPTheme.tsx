@@ -171,7 +171,7 @@ const getDesignTokens = (mode: PaletteMode) => ({
       lineHeight: 1.5,
     },
     h5: {
-      fontSize: 20,
+      fontSize: 24,
       fontWeight: 600,
     },
     h6: {
@@ -567,65 +567,15 @@ export default function getLPTheme(mode: PaletteMode): ThemeOptions {
       },
       MuiTextField: {
         styleOverrides: {
-          root: ({ theme }) => ({
-            '& label .Mui-focused': {
-              color: 'white',
-            },
-            '& .MuiInputBase-input': {
-              boxSizing: 'border-box',
-              '&::placeholder': {
-                opacity: 0.7,
+          root: {
+            "& .MuiOutlinedInput-root": {
+              borderRadius: "8px",
+              "&.Mui-focused fieldset": {
+                borderColor: "primary.main",
+                boxShadow: "0 3px 4px rgba(0,123,255,0.5)",
               },
             },
-            '& .MuiOutlinedInput-root': {
-              boxSizing: 'border-box',
-              minWidth: 280,
-              minHeight: 40,
-              height: '100%',
-              borderRadius: '10px',
-              border: '1px solid',
-              borderColor: gray[200],
-              transition: 'border-color 120ms ease-in',
-              '& fieldset': {
-                border: 'none',
-                boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
-                background: `${alpha('#FFF', 0.3)}`,
-              },
-              '&:hover': {
-                borderColor: brand[300],
-              },
-              '&.Mui-focused': {
-                borderColor: brand[400],
-                outline: '4px solid',
-                outlineColor: brand[200],
-              },
-            },
-            ...(theme.palette.mode === 'dark' && {
-              '& .MuiOutlinedInput-root': {
-                boxSizing: 'border-box',
-                minWidth: 280,
-                minHeight: 40,
-                height: '100%',
-                borderRadius: '10px',
-                border: '1px solid',
-                borderColor: gray[600],
-                transition: 'border-color 120ms ease-in',
-                '& fieldset': {
-                  border: 'none',
-                  boxShadow: ' 0px 2px 4px rgba(0, 0, 0, 0.4)',
-                  background: `${alpha(gray[800], 0.4)}`,
-                },
-                '&:hover': {
-                  borderColor: brand[300],
-                },
-                '&.Mui-focused': {
-                  borderColor: brand[400],
-                  outline: '4px solid',
-                  outlineColor: alpha(brand[500], 0.5),
-                },
-              },
-            }),
-          }),
+          },
         },
       },
     },
