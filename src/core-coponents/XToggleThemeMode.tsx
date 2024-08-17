@@ -4,6 +4,7 @@ import Tooltip from "@mui/material/Tooltip";
 
 import LaptopChromebookRoundedIcon from "@mui/icons-material/LaptopChromebookRounded";
 import LaptopRoundedIcon from "@mui/icons-material/LaptopRounded";
+import { ThemeSchemaEnum } from "../enum/ThemeEnum";
 
 interface ToggleColorModeProps {
   themeSchema: string;
@@ -18,7 +19,9 @@ export default function XToggleThemeMode({
     <Tooltip
       placement="bottom"
       title={
-        themeSchema === "pl" ? "switch default theme" : "switch custom theme"
+        themeSchema === ThemeSchemaEnum.Custom
+          ? "switch default theme"
+          : "switch custom theme"
       }
     >
       <Box sx={{ maxWidth: "32px" }}>
@@ -29,10 +32,10 @@ export default function XToggleThemeMode({
           aria-label="button to toggle theme"
           sx={{ minWidth: "32px", height: "32px", p: "4px" }}
         >
-          {themeSchema === "pl" ? (
+          {themeSchema === ThemeSchemaEnum.Custom ? (
             <LaptopRoundedIcon fontSize="medium" />
           ) : (
-            <LaptopChromebookRoundedIcon fontSize="small" />
+            <LaptopChromebookRoundedIcon fontSize="medium" />
           )}
         </Button>
       </Box>

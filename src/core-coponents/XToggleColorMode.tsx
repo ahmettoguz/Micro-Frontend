@@ -5,6 +5,7 @@ import Tooltip from "@mui/material/Tooltip";
 
 import ModeNightRoundedIcon from "@mui/icons-material/ModeNightRounded";
 import WbSunnyRoundedIcon from "@mui/icons-material/WbSunnyRounded";
+import { ThemeModeEnum } from "../enum/ThemeEnum";
 
 interface ToggleColorModeProps {
   themeMode: PaletteMode;
@@ -18,7 +19,11 @@ export default function XToggleColorMode({
   return (
     <Tooltip
       placement="bottom"
-      title={themeMode === "dark" ? "switch light theme" : "switch dark theme"}
+      title={
+        themeMode === ThemeModeEnum.Dark
+          ? "switch light theme"
+          : "switch dark theme"
+      }
     >
       <Box sx={{ maxWidth: "32px" }}>
         <Button
@@ -28,10 +33,10 @@ export default function XToggleColorMode({
           aria-label="button to toggle theme"
           sx={{ minWidth: "32px", height: "32px", p: "4px" }}
         >
-          {themeMode === "dark" ? (
-            <WbSunnyRoundedIcon fontSize="small" />
+          {themeMode === ThemeModeEnum.Dark ? (
+            <WbSunnyRoundedIcon fontSize="medium" />
           ) : (
-            <ModeNightRoundedIcon fontSize="small" />
+            <ModeNightRoundedIcon fontSize="medium" />
           )}
         </Button>
       </Box>

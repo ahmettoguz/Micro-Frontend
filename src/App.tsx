@@ -5,23 +5,34 @@ import { useState } from "react";
 import EmailForm from "./components/EmailForm";
 import XAppBar from "./components/sections/XAppBar";
 import getLPTheme from "./utils/getLPTheme";
+import { ThemeModeEnum, ThemeSchemaEnum } from "./enum/ThemeEnum";
 
 function App() {
-  const [themeMode, setThemeMode] = useState<PaletteMode>("light");
+  const [themeMode, setThemeMode] = useState<PaletteMode>(ThemeModeEnum.Light);
   const [themeSchema, setThemeSchema] = useState("default");
 
   const LPtheme = createTheme(getLPTheme(themeMode));
   const defaultTheme = createTheme({ palette: { mode: themeMode } });
 
   const toggleColorMode = () => {
-    setThemeMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
+    setThemeMode((prevMode) =>
+      prevMode === ThemeModeEnum.Light
+        ? ThemeModeEnum.Dark
+        : ThemeModeEnum.Light
+    );
   };
   const toggleTheme = () => {
-    setThemeSchema((prevTheme) => (prevTheme === "pl" ? "default" : "pl"));
+    setThemeSchema((prevTheme) =>
+      prevTheme === ThemeSchemaEnum.Custom
+        ? ThemeSchemaEnum.Default
+        : ThemeSchemaEnum.Custom
+    );
   };
 
   return (
-    <ThemeProvider theme={themeSchema === "pl" ? LPtheme : defaultTheme}>
+    <ThemeProvider
+      theme={themeSchema === ThemeSchemaEnum.Custom ? LPtheme : defaultTheme}
+    >
       <CssBaseline />
 
       <XAppBar
