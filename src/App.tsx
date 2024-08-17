@@ -4,14 +4,14 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState } from "react";
 import EmailForm from "./components/EmailForm";
 import XAppBar from "./components/sections/XAppBar";
-import getLPTheme from "./utils/getLPTheme";
+import getCustomTheme from "./utils/getCustomTheme";
 import { ThemeModeEnum, ThemeSchemaEnum } from "./enum/ThemeEnum";
 
 function App() {
   const [themeMode, setThemeMode] = useState<PaletteMode>(ThemeModeEnum.Light);
   const [themeSchema, setThemeSchema] = useState("default");
 
-  const LPtheme = createTheme(getLPTheme(themeMode));
+  const customTheme = createTheme(getCustomTheme(themeMode));
   const defaultTheme = createTheme({ palette: { mode: themeMode } });
 
   const toggleColorMode = () => {
@@ -31,7 +31,9 @@ function App() {
 
   return (
     <ThemeProvider
-      theme={themeSchema === ThemeSchemaEnum.Custom ? LPtheme : defaultTheme}
+      theme={
+        themeSchema === ThemeSchemaEnum.Custom ? customTheme : defaultTheme
+      }
     >
       <CssBaseline />
 
