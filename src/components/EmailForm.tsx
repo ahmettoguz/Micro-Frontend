@@ -7,6 +7,7 @@ import {
   Typography,
   Chip,
   CircularProgress,
+  Container,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
@@ -109,145 +110,147 @@ export default function EmailForm() {
   };
 
   return (
-    <Paper
-      elevation={4}
-      sx={{
-        mt: { xs: 1, sm: 4 },
-        px: { xs: 1, sm: 4 },
-        py: 4,
-        maxWidth: 600,
-        mx: "auto",
-        "&:hover": {
-          boxShadow:
-            theme.palette.mode === "dark"
-              ? "0 4px 20px rgba(255,255,255,0.2)"
-              : "0 4px 20px rgba(0,0,0,0.2)",
-        },
-        transition: "box-shadow 0.3s ease-in-out",
-      }}
-    >
-      <Typography
-        component="h2"
-        variant="h5"
-        gutterBottom
-        sx={{ fontWeight: "bold" }}
-      >
-        Send Email
-      </Typography>
-
-      <Typography
-        variant="subtitle1"
-        gutterBottom
-        sx={{ color: "text.secondary", mb: 3 }}
-      >
-        Fill in the details below to send your message.
-      </Typography>
-
-      {/* form */}
-      <Box
-        component="form"
+    <Container maxWidth={"sm"} sx={{ px: { xs: 0 } }}>
+      <Paper
+        elevation={4}
         sx={{
-          display: "flex",
-          flexDirection: "column",
-          gap: 2,
+          px: { xs: 1, sm: 4 },
+          py: 2,
+          mx: "auto",
+          "&:hover": {
+            boxShadow:
+              theme.palette.mode === "dark"
+                ? "0 4px 20px rgba(255,255,255,0.2)"
+                : "0 4px 20px rgba(0,0,0,0.2)",
+          },
+          transition: "box-shadow 0.3s ease-in-out",
         }}
-        noValidate
-        autoComplete="off"
       >
-        {/* receiver text field */}
-        <Box sx={{ display: "flex", gap: 1, alignItems: "flex-start" }}>
+        <Typography
+          component="h2"
+          variant="h5"
+          gutterBottom
+          sx={{ fontWeight: "bold" }}
+        >
+          Send Email
+        </Typography>
+
+        <Typography
+          variant="subtitle1"
+          gutterBottom
+          sx={{ color: "text.secondary", mb: 3 }}
+        >
+          Fill in the details below to send your message.
+        </Typography>
+
+        {/* form */}
+        <Box
+          component="form"
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 2,
+          }}
+          noValidate
+          autoComplete="off"
+        >
+          {/* receiver text field */}
+          <Box sx={{ display: "flex", gap: 1, alignItems: "flex-start" }}>
+            <TextField
+              fullWidth
+              label="Email Receiver"
+              value={emailReceiver}
+              onChange={(e) => setEmailReceiver(e.target.value)}
+              variant="outlined"
+              error={receiversError}
+              helperText={
+                receiversError ? "At least 1 receiver is required!" : ""
+              }
+            />
+            {/* add receiver button */}
+            <Button
+              variant="outlined"
+              color="primary"
+              onClick={handleAddReceiver}
+              sx={{
+                borderRadius: "8px",
+                textTransform: "none",
+                fontWeight: "bold",
+                boxShadow: "0 4px 10px rgba(33,150,243,0.4)",
+                display: "flex",
+                alignItems: "center",
+                minHeight: "4em",
+              }}
+            >
+              <PersonAddIcon />
+            </Button>
+          </Box>
+
+          {/* receivers chips */}
+          {emailReceivers.length !== 0 && (
+            <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
+              {emailReceivers.map((receiver, index) => (
+                <Chip
+                  key={index}
+                  label={receiver}
+                  onDelete={() => handleDeleteReceiver(receiver)}
+                  sx={{
+                    mb: 1,
+                  }}
+                />
+              ))}
+            </Box>
+          )}
+
+          {/* email content text field */}
           <TextField
             fullWidth
-            label="Email Receiver"
-            value={emailReceiver}
-            onChange={(e) => setEmailReceiver(e.target.value)}
+            label="Email Content"
+            value={content}
+            onChange={(e) => {
+              setContent(e.target.value);
+              setContentError(false);
+            }}
+            multiline
+            rows={4}
             variant="outlined"
-            error={receiversError}
-            helperText={
-              receiversError ? "At least 1 receiver is required!" : ""
-            }
+            required
+            error={contentError}
+            helperText={contentError ? "Content is required!" : ""}
           />
-          {/* add receiver button */}
-          <Button
-            variant="outlined"
+
+          {/* send button */}
+          <LoadingButton
+            variant="contained"
             color="primary"
-            onClick={handleAddReceiver}
+            onClick={handleSend}
+            loading={loading}
+            disabled={loading}
+            size="large"
+            loadingIndicator={<CircularProgress color="inherit" size={"2em"} />}
             sx={{
               borderRadius: "8px",
+              background:
+                "linear-gradient(90deg, rgba(33,150,243,1) 0%, rgba(30,87,153,1) 100%)",
               textTransform: "none",
               fontWeight: "bold",
               boxShadow: "0 4px 10px rgba(33,150,243,0.4)",
               display: "flex",
-              alignItems: "center",
-              minHeight: "4em",
+              "&:disabled": {
+                background:
+                  "linear-gradient(90deg, rgba(33,150,243,0.5) 0%, rgba(30,87,153,0.5) 100%)",
+              },
+              "& .MuiCircularProgress-root": {
+                color: "white",
+              },
             }}
           >
-            <PersonAddIcon />
-          </Button>
+            <span>Send</span>
+          </LoadingButton>
         </Box>
 
-        {/* receivers chips */}
-        {emailReceivers.length !== 0 && (
-          <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
-            {emailReceivers.map((receiver, index) => (
-              <Chip
-                key={index}
-                label={receiver}
-                onDelete={() => handleDeleteReceiver(receiver)}
-                sx={{ mb: 1 }}
-              />
-            ))}
-          </Box>
-        )}
-
-        {/* email content text field */}
-        <TextField
-          fullWidth
-          label="Email Content"
-          value={content}
-          onChange={(e) => {
-            setContent(e.target.value);
-            setContentError(false);
-          }}
-          multiline
-          rows={4}
-          variant="outlined"
-          required
-          error={contentError}
-          helperText={contentError ? "Content is required!" : ""}
-        />
-
-        {/* send button */}
-        <LoadingButton
-          variant="contained"
-          color="primary"
-          onClick={handleSend}
-          loading={loading}
-          disabled={loading}
-          size="large"
-          loadingIndicator={<CircularProgress color="inherit" size={"2em"} />}
-          sx={{
-            borderRadius: "8px",
-            background:
-              "linear-gradient(90deg, rgba(33,150,243,1) 0%, rgba(30,87,153,1) 100%)",
-            textTransform: "none",
-            fontWeight: "bold",
-            boxShadow: "0 4px 10px rgba(33,150,243,0.4)",
-            display: "flex",
-            "&:disabled": {
-              background:
-                "linear-gradient(90deg, rgba(33,150,243,0.5) 0%, rgba(30,87,153,0.5) 100%)",
-            },
-            "& .MuiCircularProgress-root": {
-              color: "white",
-            },
-          }}
-        >
-          <span>Send</span>
-        </LoadingButton>
-      </Box>
-
-      <XSnackbar onCallback={setSnackbarConfigs} configs={snackbarConfigs} />
-    </Paper>
+        <XSnackbar onCallback={setSnackbarConfigs} configs={snackbarConfigs} />
+      </Paper>
+    </Container>
   );
 }
