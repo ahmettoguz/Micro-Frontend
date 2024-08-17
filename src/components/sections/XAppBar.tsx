@@ -1,16 +1,18 @@
+import MenuIcon from "@mui/icons-material/Menu";
 import { PaletteMode } from "@mui/material";
-import Box from "@mui/material/Box";
 import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
+import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Divider from "@mui/material/Divider";
-import Typography from "@mui/material/Typography";
-import MenuItem from "@mui/material/MenuItem";
 import Drawer from "@mui/material/Drawer";
-import MenuIcon from "@mui/icons-material/Menu";
-import ToggleColorMode from "../../components2/ToggleColorMode";
+import MenuItem from "@mui/material/MenuItem";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
 import { useState } from "react";
+import logo from "../../assets/logo.svg";
+import ToggleColorMode from "../../core-coponents/XToggleColorMode";
+import { capitalizeFirstLetter } from "../../utils/stringFunctions";
 
 interface LogoStyle {
   width: string;
@@ -19,7 +21,7 @@ interface LogoStyle {
 }
 
 const logoStyle: LogoStyle = {
-  width: "140px",
+  width: "200px",
   height: "auto",
   cursor: "pointer",
 };
@@ -28,6 +30,14 @@ interface XAppBarProps {
   themeMode: PaletteMode;
   toggleColorMode: () => void;
 }
+
+const leftMenuItemIdList = [
+  "features",
+  "testimonials",
+  "highlights",
+  "pricing",
+  "faq",
+];
 
 function XAppBar({ themeMode, toggleColorMode }: XAppBarProps) {
   const [open, setOpen] = useState(false);
@@ -51,8 +61,158 @@ function XAppBar({ themeMode, toggleColorMode }: XAppBarProps) {
     }
   };
 
+  // render part
+  const renderLeftItems = () => {
+    return (
+      <Box
+        sx={{
+          flexGrow: 1,
+          display: "flex",
+          alignItems: "center",
+          ml: "-18px",
+          px: 0,
+        }}
+      >
+        <a href="#" style={{ height: "100%", display: "flex" }}>
+          <img src={logo} style={logoStyle} alt="logo of sendsphere" />
+        </a>
+
+        <Box sx={{ display: { xs: "none", md: "flex" }, pl: "10px" }}>
+          {leftMenuItemIdList.map((id) => (
+            <MenuItem
+              key={id}
+              onClick={() => scrollToSection(id)}
+              sx={{ py: "10px", px: "12px" }}
+            >
+              <Typography variant="body2" color="text.primary">
+                {capitalizeFirstLetter(id)}
+              </Typography>
+            </MenuItem>
+          ))}
+        </Box>
+      </Box>
+    );
+  };
+
+  const renderRightItems = () => {
+    return (
+      <Box
+        sx={{
+          display: { xs: "none", md: "flex" },
+          gap: 0.5,
+          alignItems: "center",
+        }}
+      >
+        <ToggleColorMode
+          themeMode={themeMode}
+          toggleColorMode={toggleColorMode}
+        />
+
+        <Button
+          color="primary"
+          variant="text"
+          size="small"
+          component="a"
+          href="/material-ui/getting-started/templates/sign-in/"
+          target="_blank"
+        >
+          Sign in
+        </Button>
+
+        <Button
+          color="primary"
+          variant="contained"
+          size="small"
+          component="a"
+          href="/material-ui/getting-started/templates/sign-up/"
+          target="_blank"
+        >
+          Sign up
+        </Button>
+      </Box>
+    );
+  };
+
+  const renderSmallDrawerItems = () => {
+    return (
+      <Box sx={{ display: { sm: "", md: "none" } }}>
+        <Button
+          variant="text"
+          color="primary"
+          aria-label="menu"
+          onClick={toggleDrawer(true)}
+          sx={{ minWidth: "30px", p: "4px" }}
+        >
+          <MenuIcon />
+        </Button>
+        <Drawer anchor="right" open={open} onClose={toggleDrawer(false)}>
+          <Box
+            sx={{
+              minWidth: "60dvw",
+              p: 2,
+              backgroundColor: "background.paper",
+              flexGrow: 1,
+            }}
+          >
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "end",
+                flexGrow: 1,
+              }}
+            >
+              <ToggleColorMode
+                themeMode={themeMode}
+                toggleColorMode={toggleColorMode}
+              />
+            </Box>
+            <MenuItem onClick={() => scrollToSection("features")}>
+              Features
+            </MenuItem>
+            <MenuItem onClick={() => scrollToSection("testimonials")}>
+              Testimonials
+            </MenuItem>
+            <MenuItem onClick={() => scrollToSection("highlights")}>
+              Highlights
+            </MenuItem>
+            <MenuItem onClick={() => scrollToSection("pricing")}>
+              Pricing
+            </MenuItem>
+            <MenuItem onClick={() => scrollToSection("faq")}>FAQ</MenuItem>
+            <Divider />
+            <MenuItem>
+              <Button
+                color="primary"
+                variant="contained"
+                component="a"
+                href="/material-ui/getting-started/templates/sign-up/"
+                target="_blank"
+                sx={{ width: "100%" }}
+              >
+                Sign up
+              </Button>
+            </MenuItem>
+            <MenuItem>
+              <Button
+                color="primary"
+                variant="outlined"
+                component="a"
+                href="/material-ui/getting-started/templates/sign-in/"
+                target="_blank"
+                sx={{ width: "100%" }}
+              >
+                Sign in
+              </Button>
+            </MenuItem>
+          </Box>
+        </Drawer>
+      </Box>
+    );
+  };
+
   return (
-    <div>
+    <>
       <AppBar
         position="fixed"
         sx={{
@@ -85,176 +245,15 @@ function XAppBar({ themeMode, toggleColorMode }: XAppBarProps) {
                   : "0 0 1px rgba(2, 31, 59, 0.7), 1px 1.5px 2px -1px rgba(2, 31, 59, 0.65), 4px 4px 12px -2.5px rgba(2, 31, 59, 0.65)",
             }}
           >
-            <Box
-              sx={{
-                flexGrow: 1,
-                display: "flex",
-                alignItems: "center",
-                ml: "-18px",
-                px: 0,
-              }}
-            >
-              <img
-                src={
-                  "https://assets-global.website-files.com/61ed56ae9da9fd7e0ef0a967/61f12e6faf73568658154dae_SitemarkDefault.svg"
-                }
-                style={logoStyle}
-                alt="logo of sitemark"
-              />
-              <Box sx={{ display: { xs: "none", md: "flex" } }}>
-                <MenuItem
-                  onClick={() => scrollToSection("features")}
-                  sx={{ py: "6px", px: "12px" }}
-                >
-                  <Typography variant="body2" color="text.primary">
-                    Features
-                  </Typography>
-                </MenuItem>
-                <MenuItem
-                  onClick={() => scrollToSection("testimonials")}
-                  sx={{ py: "6px", px: "12px" }}
-                >
-                  <Typography variant="body2" color="text.primary">
-                    Testimonials
-                  </Typography>
-                </MenuItem>
-                <MenuItem
-                  onClick={() => scrollToSection("highlights")}
-                  sx={{ py: "6px", px: "12px" }}
-                >
-                  <Typography variant="body2" color="text.primary">
-                    Highlights
-                  </Typography>
-                </MenuItem>
-                <MenuItem
-                  onClick={() => scrollToSection("pricing")}
-                  sx={{ py: "6px", px: "12px" }}
-                >
-                  <Typography variant="body2" color="text.primary">
-                    Pricing
-                  </Typography>
-                </MenuItem>
-                <MenuItem
-                  onClick={() => scrollToSection("faq")}
-                  sx={{ py: "6px", px: "12px" }}
-                >
-                  <Typography variant="body2" color="text.primary">
-                    FAQ
-                  </Typography>
-                </MenuItem>
-              </Box>
-            </Box>
-            <Box
-              sx={{
-                display: { xs: "none", md: "flex" },
-                gap: 0.5,
-                alignItems: "center",
-              }}
-            >
-              <ToggleColorMode
-                themeMode={themeMode}
-                toggleColorMode={toggleColorMode}
-              />
-              <Button
-                color="primary"
-                variant="text"
-                size="small"
-                component="a"
-                href="/material-ui/getting-started/templates/sign-in/"
-                target="_blank"
-              >
-                Sign in
-              </Button>
-              <Button
-                color="primary"
-                variant="contained"
-                size="small"
-                component="a"
-                href="/material-ui/getting-started/templates/sign-up/"
-                target="_blank"
-              >
-                Sign up
-              </Button>
-            </Box>
-            <Box sx={{ display: { sm: "", md: "none" } }}>
-              <Button
-                variant="text"
-                color="primary"
-                aria-label="menu"
-                onClick={toggleDrawer(true)}
-                sx={{ minWidth: "30px", p: "4px" }}
-              >
-                <MenuIcon />
-              </Button>
-              <Drawer anchor="right" open={open} onClose={toggleDrawer(false)}>
-                <Box
-                  sx={{
-                    minWidth: "60dvw",
-                    p: 2,
-                    backgroundColor: "background.paper",
-                    flexGrow: 1,
-                  }}
-                >
-                  <Box
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "end",
-                      flexGrow: 1,
-                    }}
-                  >
-                    <ToggleColorMode
-                      themeMode={themeMode}
-                      toggleColorMode={toggleColorMode}
-                    />
-                  </Box>
-                  <MenuItem onClick={() => scrollToSection("features")}>
-                    Features
-                  </MenuItem>
-                  <MenuItem onClick={() => scrollToSection("testimonials")}>
-                    Testimonials
-                  </MenuItem>
-                  <MenuItem onClick={() => scrollToSection("highlights")}>
-                    Highlights
-                  </MenuItem>
-                  <MenuItem onClick={() => scrollToSection("pricing")}>
-                    Pricing
-                  </MenuItem>
-                  <MenuItem onClick={() => scrollToSection("faq")}>
-                    FAQ
-                  </MenuItem>
-                  <Divider />
-                  <MenuItem>
-                    <Button
-                      color="primary"
-                      variant="contained"
-                      component="a"
-                      href="/material-ui/getting-started/templates/sign-up/"
-                      target="_blank"
-                      sx={{ width: "100%" }}
-                    >
-                      Sign up
-                    </Button>
-                  </MenuItem>
-                  <MenuItem>
-                    <Button
-                      color="primary"
-                      variant="outlined"
-                      component="a"
-                      href="/material-ui/getting-started/templates/sign-in/"
-                      target="_blank"
-                      sx={{ width: "100%" }}
-                    >
-                      Sign in
-                    </Button>
-                  </MenuItem>
-                </Box>
-              </Drawer>
-            </Box>
+            {renderLeftItems()}
+
+            {renderRightItems()}
+
+            {renderSmallDrawerItems()}
           </Toolbar>
         </Container>
       </AppBar>
-    </div>
+    </>
   );
 }
 
