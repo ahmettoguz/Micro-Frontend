@@ -18,7 +18,7 @@ export default function XToggleColorMode({
   return (
     <Tooltip
       placement="bottom"
-      title={themeMode === "dark" ? "light theme" : "dark theme"}
+      title={themeMode === "dark" ? "switch light theme" : "switch dark theme"}
     >
       <Box sx={{ maxWidth: "32px" }}>
         <Button

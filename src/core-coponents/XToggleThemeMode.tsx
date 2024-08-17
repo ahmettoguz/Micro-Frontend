@@ -17,7 +17,9 @@ export default function XToggleThemeMode({
   return (
     <Tooltip
       placement="bottom"
-      title={themeSchema === "pl" ? "default theme" : "custom theme"}
+      title={
+        themeSchema === "pl" ? "switch default theme" : "switch custom theme"
+      }
     >
       <Box sx={{ maxWidth: "32px" }}>
         <Button
