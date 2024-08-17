@@ -8,17 +8,28 @@ import getLPTheme from "./utils/getLPTheme";
 
 function App() {
   const [themeMode, setThemeMode] = useState<PaletteMode>("light");
+  const [themeSchema, setThemeSchema] = useState("default");
+
   const LPtheme = createTheme(getLPTheme(themeMode));
+  const defaultTheme = createTheme({ palette: { mode: themeMode } });
 
   const toggleColorMode = () => {
     setThemeMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
   };
+  const toggleTheme = () => {
+    setThemeSchema((prevTheme) => (prevTheme === "pl" ? "default" : "pl"));
+  };
 
   return (
-    <ThemeProvider theme={LPtheme}>
+    <ThemeProvider theme={themeSchema === "pl" ? LPtheme : defaultTheme}>
       <CssBaseline />
 
-      <XAppBar themeMode={themeMode} toggleColorMode={toggleColorMode} />
+      <XAppBar
+        themeMode={themeMode}
+        themeSchema={themeSchema}
+        toggleColorMode={toggleColorMode}
+        toggleTheme={toggleTheme}
+      />
 
       <Container
         sx={{
