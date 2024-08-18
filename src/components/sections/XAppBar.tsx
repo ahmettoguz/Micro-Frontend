@@ -41,9 +41,6 @@ const leftMenuItemIdList = [
   "pricing",
 ];
 
-const isThemeChangeEnabled =
-  import.meta.env.VITE_APP_ENABLE_THEME_CHANGE === "true";
-
 export default function XAppBar({
   themeMode,
   themeSchema,
@@ -139,12 +136,7 @@ export default function XAppBar({
           toggleColorMode={toggleColorMode}
         />
 
-        {isThemeChangeEnabled && (
-          <XToggleThemeMode
-            themeSchema={themeSchema}
-            toggleTheme={toggleTheme}
-          />
-        )}
+        <XToggleThemeMode themeSchema={themeSchema} toggleTheme={toggleTheme} />
 
         <Button
           color="primary"
@@ -171,18 +163,24 @@ export default function XAppBar({
     );
   };
 
+  const renderDrawerButton = () => {
+    return (
+      <Button
+        variant="text"
+        color="primary"
+        aria-label="menu"
+        onClick={toggleDrawer(true)}
+        sx={{ minWidth: "30px", p: "4px" }}
+      >
+        <MenuIcon />
+      </Button>
+    );
+  };
+
   const renderSmallDrawerItems = () => {
     return (
       <Box sx={{ display: { sm: "", md: "none" } }}>
-        <Button
-          variant="text"
-          color="primary"
-          aria-label="menu"
-          onClick={toggleDrawer(true)}
-          sx={{ minWidth: "30px", p: "4px" }}
-        >
-          <MenuIcon />
-        </Button>
+        {renderDrawerButton()}
         <Drawer anchor="right" open={open} onClose={toggleDrawer(false)}>
           <Box
             sx={{
@@ -195,8 +193,7 @@ export default function XAppBar({
             <Box
               sx={{
                 display: "flex",
-                flexDirection: "column",
-                alignItems: "end",
+                justifyContent: "flex-end",
                 flexGrow: 1,
               }}
             >
@@ -204,21 +201,25 @@ export default function XAppBar({
                 themeMode={themeMode}
                 toggleColorMode={toggleColorMode}
               />
+
+              <XToggleThemeMode
+                themeSchema={themeSchema}
+                toggleTheme={toggleTheme}
+              />
             </Box>
-            <MenuItem onClick={() => scrollToSection("features")}>
-              Features
-            </MenuItem>
-            <MenuItem onClick={() => scrollToSection("testimonials")}>
-              Testimonials
-            </MenuItem>
-            <MenuItem onClick={() => scrollToSection("highlights")}>
-              Highlights
-            </MenuItem>
-            <MenuItem onClick={() => scrollToSection("pricing")}>
-              Pricing
-            </MenuItem>
-            <MenuItem onClick={() => scrollToSection("faq")}>FAQ</MenuItem>
+
+            {leftMenuItemIdList.map((id) => (
+              <MenuItem
+                key={id}
+                onClick={() => scrollToSection(id)}
+                sx={{ py: "10px", px: "15px" }}
+              >
+                {capitalizeFirstLetter(id)}
+              </MenuItem>
+            ))}
+
             <Divider />
+
             <MenuItem>
               <Button
                 color="primary"
