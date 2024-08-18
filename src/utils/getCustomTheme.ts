@@ -461,6 +461,7 @@ export default function getCustomTheme(mode: PaletteMode): any {
             color: brand[600],
             position: "relative",
             textDecoration: "none",
+            letterSpacing: "0.01071em",
             "&::before": {
               content: '""',
               position: "absolute",
@@ -468,7 +469,7 @@ export default function getCustomTheme(mode: PaletteMode): any {
               height: "1px",
               bottom: 0,
               left: 0,
-              backgroundColor: brand[200],
+              backgroundColor: brand[500],
               opacity: 0.7,
               transition: "width 0.3s ease, opacity 0.3s ease",
             },

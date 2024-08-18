@@ -17,18 +17,20 @@ export default function XFooter() {
         variant="body2"
         sx={{
           fontFamily: "Montserrat, sans-serif",
+          fontWeight: 500,
           fontStyle: "italic",
           background:
             theme.palette.mode === ThemeModeEnum.Dark
               ? `linear-gradient(90deg, ${theme.palette.primary.main} -150%, black 50%, ${theme.palette.primary.main} 250%)`
-              : "linear-gradient(90deg, gray -150%, black 50%, gray 250%)",
+              : `linear-gradient(90deg, ${theme.palette.primary.main} -50%, white 50%, ${theme.palette.primary.main} 150%)`,
+          color:
+            theme.palette.mode === "dark" ? "primary.main" : "primary.dark",
         }}
       >
         <Link
           href="https://github.com/ahmettoguz"
           target="_blank"
           sx={{
-            color: theme.palette.mode === "dark" ? "primary.main" : grey[400],
             textDecoration: "none",
             "&:hover": {},
           }}
