@@ -459,7 +459,6 @@ export default function getCustomTheme(mode: PaletteMode): any {
         styleOverrides: {
           root: ({ theme }) => ({
             color: brand[600],
-            fontWeight: 500,
             position: "relative",
             textDecoration: "none",
             "&::before": {

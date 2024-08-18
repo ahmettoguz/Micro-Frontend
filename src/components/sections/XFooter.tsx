@@ -1,14 +1,15 @@
-import { Box, Link, Typography } from "@mui/material";
+import { Box, Link, Typography, useTheme } from "@mui/material";
+import { ThemeModeEnum } from "../../enum/ThemeEnum";
+import { grey } from "@mui/material/colors";
 
 export default function XFooter() {
+  const theme = useTheme();
   return (
     <Box
       sx={{
         position: "fixed",
         width: "100dvw",
         bottom: 0,
-        bgcolor: "primary.main",
-        color: "white",
         textAlign: "center",
       }}
     >
@@ -18,14 +19,18 @@ export default function XFooter() {
           fontFamily: "Montserrat, sans-serif",
           fontStyle: "italic",
           background:
-            "linear-gradient(90deg, gray -150%, black 50%, gray 250%)",
+            theme.palette.mode === ThemeModeEnum.Dark
+              ? `linear-gradient(90deg, ${theme.palette.primary.main} -150%, black 50%, ${theme.palette.primary.main} 250%)`
+              : "linear-gradient(90deg, gray -150%, black 50%, gray 250%)",
         }}
       >
         <Link
-          href="#"
+          href="https://github.com/ahmettoguz"
+          target="_blank"
           sx={{
-            color: "rgba(255, 255, 255, 0.8)",
+            color: theme.palette.mode === "dark" ? "primary.main" : grey[400],
             textDecoration: "none",
+            "&:hover": {},
           }}
         >
           Developed by Ahmet Oğuz Ergin
@@ -34,9 +39,3 @@ export default function XFooter() {
     </Box>
   );
 }
-
-// /* footer */
-// footer {
-//     ;
-//     text-align: center;
-//   }

@@ -1,7 +1,7 @@
-import '@fontsource/inter/300.css';
-import '@fontsource/inter/400.css';
-import '@fontsource/inter/500.css';
-import '@fontsource/inter/700.css';
+import "@fontsource/inter/300.css";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/700.css";
 
 import "@fontsource/montserrat/300.css";
 import "@fontsource/montserrat/400.css";
@@ -14,7 +14,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState } from "react";
 import EmailForm from "./components/EmailForm";
 import XAppBar from "./components/sections/XAppBar";
-import XFooter from './components/sections/XFooter';
+import XFooter from "./components/sections/XFooter";
 import { ThemeModeEnum, ThemeSchemaEnum } from "./enum/ThemeEnum";
 import getCustomTheme from "./utils/getCustomTheme";
 
