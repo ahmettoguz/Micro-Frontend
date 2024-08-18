@@ -257,7 +257,7 @@ export default function XAppBar({
           boxShadow: 0,
           bgcolor: "transparent",
           backgroundImage: "none",
-          transition: "0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55)",
+          transition: "margin-top 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55)",
           mt: scrolledToBottom ? 0 : 3,
         }}
       >
