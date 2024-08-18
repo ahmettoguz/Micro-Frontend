@@ -11,34 +11,41 @@ interface ToggleColorModeProps {
   toggleTheme: () => void;
 }
 
+const isThemeChangeEnabled =
+  import.meta.env.VITE_APP_ENABLE_THEME_CHANGE === "true";
+
 export default function XToggleThemeMode({
   themeSchema,
   toggleTheme,
 }: ToggleColorModeProps) {
   return (
-    <Tooltip
-      placement="bottom"
-      title={
-        themeSchema === ThemeSchemaEnum.Custom
-          ? "switch default theme"
-          : "switch custom theme"
-      }
-    >
-      <Box sx={{ maxWidth: "32px" }}>
-        <Button
-          variant="text"
-          onClick={toggleTheme}
-          size="small"
-          aria-label="button to toggle theme"
-          sx={{ minWidth: "32px", height: "32px", p: "4px" }}
+    <>
+      {isThemeChangeEnabled ? (
+        <Tooltip
+          placement="bottom"
+          title={
+            themeSchema === ThemeSchemaEnum.Custom
+              ? "switch default theme"
+              : "switch custom theme"
+          }
         >
-          {themeSchema === ThemeSchemaEnum.Custom ? (
-            <LaptopRoundedIcon fontSize="medium" />
-          ) : (
-            <LaptopChromebookRoundedIcon fontSize="medium" />
-          )}
-        </Button>
-      </Box>
-    </Tooltip>
+          <Box sx={{ maxWidth: "32px" }}>
+            <Button
+              variant="text"
+              onClick={toggleTheme}
+              size="small"
+              aria-label="button to toggle theme"
+              sx={{ minWidth: "32px", height: "32px", p: "4px" }}
+            >
+              {themeSchema === ThemeSchemaEnum.Custom ? (
+                <LaptopRoundedIcon fontSize="medium" />
+              ) : (
+                <LaptopChromebookRoundedIcon fontSize="medium" />
+              )}
+            </Button>
+          </Box>
+        </Tooltip>
+      ) : null}
+    </>
   );
 }
