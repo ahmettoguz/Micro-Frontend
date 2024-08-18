@@ -1,11 +1,15 @@
+import '@fontsource/inter/300.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/inter/700.css';
 import { Container, PaletteMode } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState } from "react";
 import EmailForm from "./components/EmailForm";
 import XAppBar from "./components/sections/XAppBar";
-import getCustomTheme from "./utils/getCustomTheme";
 import { ThemeModeEnum, ThemeSchemaEnum } from "./enum/ThemeEnum";
+import getCustomTheme from "./utils/getCustomTheme";
 
 function App() {
   const [themeMode, setThemeMode] = useState<PaletteMode>(ThemeModeEnum.Light);
