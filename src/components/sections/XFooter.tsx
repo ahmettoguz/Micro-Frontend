@@ -21,8 +21,8 @@ const XFooter = memo(() => {
           fontStyle: "italic",
           background:
             theme.palette.mode === ThemeModeEnum.Dark
-              ? `linear-gradient(90deg, ${theme.palette.primary.main} -150%, black 50%, ${theme.palette.primary.main} 250%)`
-              : `linear-gradient(90deg, ${theme.palette.primary.main} -50%, white 50%, ${theme.palette.primary.main} 150%)`,
+              ? `linear-gradient(45deg, #02294F, #090E10 50%, #02294F)`
+              : `linear-gradient(45deg, #CEE5FD, white 50%, #CEE5FD)`,
           color:
             theme.palette.mode === "dark" ? "primary.main" : "primary.dark",
         }}
