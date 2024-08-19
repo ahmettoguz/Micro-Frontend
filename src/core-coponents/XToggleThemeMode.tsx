@@ -5,14 +5,12 @@ import Tooltip from "@mui/material/Tooltip";
 import LaptopChromebookRoundedIcon from "@mui/icons-material/LaptopChromebookRounded";
 import LaptopRoundedIcon from "@mui/icons-material/LaptopRounded";
 import { ThemeSchemaEnum } from "../enum/ThemeEnum";
+import { isThemeChangeEnabled } from "../utils/envVars";
 
 interface ToggleColorModeProps {
   themeSchema: string;
   toggleTheme: () => void;
 }
-
-const isThemeChangeEnabled =
-  import.meta.env.VITE_APP_ENABLE_THEME_CHANGE === "true";
 
 export default function XToggleThemeMode({
   themeSchema,
