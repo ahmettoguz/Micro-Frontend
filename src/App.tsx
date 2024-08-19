@@ -12,7 +12,8 @@ import { Container, Divider, PaletteMode } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState } from "react";
-import EmailForm from "./components/EmailForm";
+import { EmailSection } from "./components/EmailSection";
+import Hero from "./components/Hero";
 import XAppBar from "./components/sections/XAppBar";
 import XFooter from "./components/sections/XFooter";
 import { ThemeModeEnum, ThemeSchemaEnum } from "./enum/ThemeEnum";
@@ -21,7 +22,6 @@ import {
   getStoredThemeMode,
   getStoredThemeSchema,
 } from "./utils/localStorageUtils";
-import Hero from "./components/Hero";
 
 const storedThemeMode = getStoredThemeMode();
 const storedThemeSchema = getStoredThemeSchema();
@@ -84,7 +84,7 @@ function App() {
           pb: { xs: 8, sm: 12 },
         }}
       >
-        <EmailForm />
+        <EmailSection />
       </Container>
       <XFooter />
     </ThemeProvider>
