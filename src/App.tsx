@@ -17,27 +17,44 @@ import XAppBar from "./components/sections/XAppBar";
 import XFooter from "./components/sections/XFooter";
 import { ThemeModeEnum, ThemeSchemaEnum } from "./enum/ThemeEnum";
 import getCustomTheme from "./utils/getCustomTheme";
+import {
+  getStoredThemeMode,
+  getStoredThemeSchema,
+} from "./utils/localStorageUtils";
+
+const storedThemeMode = getStoredThemeMode();
+const storedThemeSchema = getStoredThemeSchema();
+
+console.log(storedThemeMode);
 
 function App() {
-  const [themeMode, setThemeMode] = useState<PaletteMode>(ThemeModeEnum.Light);
-  const [themeSchema, setThemeSchema] = useState("default");
+  const [themeMode, setThemeMode] = useState<PaletteMode>(storedThemeMode);
+  const [themeSchema, setThemeSchema] = useState(storedThemeSchema);
 
   const customTheme = createTheme(getCustomTheme(themeMode));
   const defaultTheme = createTheme({ palette: { mode: themeMode } });
 
   const toggleColorMode = () => {
-    setThemeMode((prevMode) =>
-      prevMode === ThemeModeEnum.Light
-        ? ThemeModeEnum.Dark
-        : ThemeModeEnum.Light
-    );
+    setThemeMode((prevMode) => {
+      const tempMode =
+        prevMode === ThemeModeEnum.Light
+          ? ThemeModeEnum.Dark
+          : ThemeModeEnum.Light;
+
+      localStorage.setItem("themeMode", tempMode);
+      return tempMode;
+    });
   };
   const toggleTheme = () => {
-    setThemeSchema((prevTheme) =>
-      prevTheme === ThemeSchemaEnum.Custom
-        ? ThemeSchemaEnum.Default
-        : ThemeSchemaEnum.Custom
-    );
+    setThemeSchema((prevTheme) => {
+      const tempSchema =
+        prevTheme === ThemeSchemaEnum.Custom
+          ? ThemeSchemaEnum.Default
+          : ThemeSchemaEnum.Custom;
+
+      localStorage.setItem("themeSchema", tempSchema);
+      return tempSchema;
+    });
   };
 
   return (
