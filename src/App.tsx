@@ -79,7 +79,6 @@ function App() {
         sx={{
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
           mb: 5,
         }}
       >
