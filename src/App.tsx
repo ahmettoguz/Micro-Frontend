@@ -22,6 +22,7 @@ import {
   getStoredThemeMode,
   getStoredThemeSchema,
 } from "./utils/localStorageUtils";
+import { ServiceTest } from "./components/ServiceTest";
 
 const storedThemeMode = getStoredThemeMode();
 const storedThemeSchema = getStoredThemeSchema();
@@ -83,6 +84,10 @@ function App() {
         }}
       >
         <EmailSection />
+
+        <Divider />
+        
+        <ServiceTest />
       </Container>
       <XFooter />
     </ThemeProvider>

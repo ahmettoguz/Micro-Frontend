@@ -117,6 +117,7 @@ export default function EmailForm() {
           px: { xs: 1, sm: 4 },
           py: 2,
           mx: "auto",
+          textAlign: "left",
           "&:hover": {
             boxShadow:
               theme.palette.mode === "dark"
@@ -136,7 +137,7 @@ export default function EmailForm() {
         </Typography>
 
         <Typography
-          variant="subtitle1"
+          variant="subtitle2"
           gutterBottom
           sx={{ color: "text.secondary", mb: 3 }}
         >
