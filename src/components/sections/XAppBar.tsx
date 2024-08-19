@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 import logo from "../../assets/logo.svg";
 import XToggleColorMode from "../../core-coponents/XToggleColorMode";
 import XToggleThemeMode from "../../core-coponents/XToggleThemeMode";
+import { scrollToSection } from "../../utils/scrollUtils";
 
 interface LogoStyle {
   width: string;
@@ -69,22 +70,6 @@ export default function XAppBar({
 
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
-  };
-
-  const scrollToSection = (sectionId: string) => {
-    const sectionElement = document.getElementById(sectionId);
-    const offset = 128;
-    if (sectionElement) {
-      const targetScroll = sectionElement.offsetTop - offset;
-      sectionElement.scrollIntoView({ behavior: "smooth" });
-      window.scrollTo({
-        top: targetScroll,
-        behavior: "smooth",
-      });
-
-      // close drawer
-      setOpen(false);
-    }
   };
 
   // render part
@@ -188,7 +173,7 @@ export default function XAppBar({
             {leftMenuItemIdList.map((item) => (
               <MenuItem
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => scrollToSection(item.id, () => setOpen(false))}
                 sx={{ py: "10px", px: "15px" }}
               >
                 {item.name}
@@ -211,7 +196,7 @@ export default function XAppBar({
           bgcolor: "transparent",
           backgroundImage: "none",
           transition: "margin-top 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55)",
-          mt: scrolledToBottom ? 0 : 3,
+          mt: scrolledToBottom ? 1 : 3,
         }}
       >
         <Container maxWidth="lg">

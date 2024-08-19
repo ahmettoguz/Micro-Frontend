@@ -5,6 +5,7 @@ import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { appDescription, appName } from "../utils/envVars";
+import { scrollToSection } from "../utils/scrollUtils";
 
 export default function Hero() {
   return (
@@ -74,6 +75,7 @@ export default function Hero() {
             variant="outlined"
             color="primary"
             endIcon={<RocketLaunch />}
+            onClick={() => scrollToSection("email-service")}
             sx={{
               mt: 2,
               p: 2,

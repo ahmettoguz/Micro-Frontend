@@ -80,8 +80,7 @@ function App() {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          pt: 14,
-          pb: { xs: 8, sm: 12 },
+          mb: 5,
         }}
       >
         <EmailSection />
