@@ -25,8 +25,6 @@ import {
 const storedThemeMode = getStoredThemeMode();
 const storedThemeSchema = getStoredThemeSchema();
 
-console.log(storedThemeMode);
-
 function App() {
   const [themeMode, setThemeMode] = useState<PaletteMode>(storedThemeMode);
   const [themeSchema, setThemeSchema] = useState(storedThemeSchema);
