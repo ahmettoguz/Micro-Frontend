@@ -13,7 +13,6 @@ import { useEffect, useState } from "react";
 import logo from "../../assets/logo.svg";
 import XToggleColorMode from "../../core-coponents/XToggleColorMode";
 import XToggleThemeMode from "../../core-coponents/XToggleThemeMode";
-import { capitalizeFirstLetter } from "../../utils/stringFunctions";
 
 interface LogoStyle {
   width: string;
@@ -35,10 +34,10 @@ interface XAppBarProps {
 }
 
 const leftMenuItemIdList = [
-  "features",
-  "testimonials",
-  "highlights",
-  "pricing",
+  {
+    name: "Email Service",
+    id: "email-service",
+  },
 ];
 
 export default function XAppBar({
@@ -106,14 +105,14 @@ export default function XAppBar({
         </a>
 
         <Box sx={{ display: { xs: "none", md: "flex" }, pl: "10px" }}>
-          {leftMenuItemIdList.map((id) => (
+          {leftMenuItemIdList.map((item) => (
             <MenuItem
-              key={id}
-              onClick={() => scrollToSection(id)}
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
               sx={{ py: "10px", px: "12px" }}
             >
               <Typography variant="body2" color="text.primary">
-                {capitalizeFirstLetter(id)}
+                {item.name}
               </Typography>
             </MenuItem>
           ))}
@@ -208,13 +207,13 @@ export default function XAppBar({
               />
             </Box>
 
-            {leftMenuItemIdList.map((id) => (
+            {leftMenuItemIdList.map((item) => (
               <MenuItem
-                key={id}
-                onClick={() => scrollToSection(id)}
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
                 sx={{ py: "10px", px: "15px" }}
               >
-                {capitalizeFirstLetter(id)}
+                {item.name}
               </MenuItem>
             ))}
 
