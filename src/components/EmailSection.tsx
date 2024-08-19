@@ -20,6 +20,11 @@ export const EmailSection = () => {
             theme.palette.mode === ThemeModeEnum.Light
               ? `radial-gradient(circle at 30% 30%, white 10%, ${theme.palette.primary.light})`
               : `radial-gradient(circle at 30% 30%, black 40%, ${theme.palette.primary.dark})`,
+          transition: "transform 0.3s, box-shadow 0.3s",
+          "&:hover": {
+            transform: "scale(1.03)",
+            boxShadow: 8,
+          },
         }}
       >
         <Typography
