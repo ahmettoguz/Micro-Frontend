@@ -1,8 +1,8 @@
 import { Box, Link, Typography, useTheme } from "@mui/material";
 import { ThemeModeEnum } from "../../enum/ThemeEnum";
-import { grey } from "@mui/material/colors";
+import { memo } from "react";
 
-export default function XFooter() {
+const XFooter = memo(() => {
   const theme = useTheme();
   return (
     <Box
@@ -40,4 +40,6 @@ export default function XFooter() {
       </Typography>
     </Box>
   );
-}
+});
+
+export default XFooter;
