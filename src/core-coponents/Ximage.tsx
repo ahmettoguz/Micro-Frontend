@@ -1,6 +1,6 @@
 import { alpha, Box } from "@mui/material";
 
-export const Ximage = () => {
+export const XImage = ({ children }) => {
   return (
     <Box
       id="image"
@@ -28,3 +28,33 @@ export const Ximage = () => {
     />
   );
 };
+
+
+// <Container
+//             sx={{
+//               pt: 3,
+//               display: "flex",
+//               justifyContent: "center",
+//             }}
+//           >
+//             <Paper
+//               sx={{
+//                 width: "400px",
+//                 height: "150px",
+//                 display: "flex",
+//                 justifyContent: "center",
+//                 alignItems: "center",
+//                 elevation: 3,
+//                 p: 2,
+//               }}
+//             >
+//               <Box
+//                 component="img"
+//                 src={logo}
+//                 sx={{
+//                   width: "100%",
+//                   height: "auto",
+//                 }}
+//               />
+//             </Paper>
+//           </Container>

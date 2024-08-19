@@ -21,6 +21,7 @@ import {
   getStoredThemeMode,
   getStoredThemeSchema,
 } from "./utils/localStorageUtils";
+import Hero from "./components/Hero";
 
 const storedThemeMode = getStoredThemeMode();
 const storedThemeSchema = getStoredThemeSchema();
@@ -69,6 +70,8 @@ function App() {
         toggleColorMode={toggleColorMode}
         toggleTheme={toggleTheme}
       />
+
+      <Hero />
 
       <Container
         sx={{
