@@ -1,4 +1,6 @@
+import RocketLaunch from "@mui/icons-material/RocketLaunch";
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
@@ -27,7 +29,11 @@ export default function Hero() {
           pb: { xs: 8, sm: 12 },
         }}
       >
-        <Stack spacing={2} useFlexGap sx={{ width: { xs: "100%", sm: "70%" } }}>
+        <Stack
+          spacing={2}
+          useFlexGap
+          sx={{ width: { xs: "100%", sm: "70%" }, alignItems: "center" }}
+        >
           <Typography
             variant="h1"
             sx={{
@@ -63,6 +69,27 @@ export default function Hero() {
           >
             {appDescription}
           </Typography>
+
+          <Button
+            variant="outlined"
+            color="primary"
+            endIcon={<RocketLaunch />}
+            sx={{
+              mt: 2,
+              p: 2,
+              borderRadius: 20,
+              fontSize: "1.1rem",
+              textTransform: "none",
+              maxWidth: "250px",
+              width: "100%",
+              boxShadow: "0 4px 8px rgba(0, 100, 100, 0.5)",
+              ":hover": {
+                boxShadow: "0 4px 8px rgba(0, 100, 100, 0.8)",
+              },
+            }}
+          >
+            Discover
+          </Button>
         </Stack>
       </Container>
     </Box>

@@ -8,7 +8,7 @@ import "@fontsource/montserrat/400.css";
 import "@fontsource/montserrat/500.css";
 import "@fontsource/montserrat/700.css";
 
-import { Container, PaletteMode } from "@mui/material";
+import { Container, Divider, PaletteMode } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState } from "react";
@@ -73,6 +73,8 @@ function App() {
 
       <Hero />
 
+      <Divider />
+
       <Container
         sx={{
           display: "flex",
@@ -83,87 +85,6 @@ function App() {
         }}
       >
         <EmailForm />
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio non
-          nobis magnam rem praesentium deserunt ut quae, placeat incidunt
-          molestiae repudiandae perferendis quos quod fugiat cumque expedita vel
-          sit totam. Ex soluta iusto necessitatibus molestias, numquam fugiat,
-          provident voluptatem facere perspiciatis nesciunt corporis quia alias
-          odio odit? Officia aliquid, blanditiis commodi consequatur, neque
-          iusto culpa quas, officiis unde dicta dolorum?
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio non
-          nobis magnam rem praesentium deserunt ut quae, placeat incidunt
-          molestiae repudiandae perferendis quos quod fugiat cumque expedita vel
-          sit totam. Ex soluta iusto necessitatibus molestias, numquam fugiat,
-          provident voluptatem facere perspiciatis nesciunt corporis quia alias
-          odio odit? Officia aliquid, blanditiis commodi consequatur, neque
-          iusto culpa quas, officiis unde dicta dolorum?
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio non
-          nobis magnam rem praesentium deserunt ut quae, placeat incidunt
-          molestiae repudiandae perferendis quos quod fugiat cumque expedita vel
-          sit totam. Ex soluta iusto necessitatibus molestias, numquam fugiat,
-          provident voluptatem facere perspiciatis nesciunt corporis quia alias
-          odio odit? Officia aliquid, blanditiis commodi consequatur, neque
-          iusto culpa quas, officiis unde dicta dolorum?
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio non
-          nobis magnam rem praesentium deserunt ut quae, placeat incidunt
-          molestiae repudiandae perferendis quos quod fugiat cumque expedita vel
-          sit totam. Ex soluta iusto necessitatibus molestias, numquam fugiat,
-          provident voluptatem facere perspiciatis nesciunt corporis quia alias
-          odio odit? Officia aliquid, blanditiis commodi consequatur, neque
-          iusto culpa quas, officiis unde dicta dolorum?
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio non
-          nobis magnam rem praesentium deserunt ut quae, placeat incidunt
-          molestiae repudiandae perferendis quos quod fugiat cumque expedita vel
-          sit totam. Ex soluta iusto necessitatibus molestias, numquam fugiat,
-          provident voluptatem facere perspiciatis nesciunt corporis quia alias
-          odio odit? Officia aliquid, blanditiis commodi consequatur, neque
-          iusto culpa quas, officiis unde dicta dolorum?
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio non
-          nobis magnam rem praesentium deserunt ut quae, placeat incidunt
-          molestiae repudiandae perferendis quos quod fugiat cumque expedita vel
-          sit totam. Ex soluta iusto necessitatibus molestias, numquam fugiat,
-          provident voluptatem facere perspiciatis nesciunt corporis quia alias
-          odio odit? Officia aliquid, blanditiis commodi consequatur, neque
-          iusto culpa quas, officiis unde dicta dolorum?
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio non
-          nobis magnam rem praesentium deserunt ut quae, placeat incidunt
-          molestiae repudiandae perferendis quos quod fugiat cumque expedita vel
-          sit totam. Ex soluta iusto necessitatibus molestias, numquam fugiat,
-          provident voluptatem facere perspiciatis nesciunt corporis quia alias
-          odio odit? Officia aliquid, blanditiis commodi consequatur, neque
-          iusto culpa quas, officiis unde dicta dolorum?
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio non
-          nobis magnam rem praesentium deserunt ut quae, placeat incidunt
-          molestiae repudiandae perferendis quos quod fugiat cumque expedita vel
-          sit totam. Ex soluta iusto necessitatibus molestias, numquam fugiat,
-          provident voluptatem facere perspiciatis nesciunt corporis quia alias
-          odio odit? Officia aliquid, blanditiis commodi consequatur, neque
-          iusto culpa quas, officiis unde dicta dolorum?
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio non
-          nobis magnam rem praesentium deserunt ut quae, placeat incidunt
-          molestiae repudiandae perferendis quos quod fugiat cumque expedita vel
-          sit totam. Ex soluta iusto necessitatibus molestias, numquam fugiat,
-          provident voluptatem facere perspiciatis nesciunt corporis quia alias
-          odio odit? Officia aliquid, blanditiis commodi consequatur, neque
-          iusto culpa quas, officiis unde dicta dolorum?
-        </p>
       </Container>
       <XFooter />
     </ThemeProvider>
