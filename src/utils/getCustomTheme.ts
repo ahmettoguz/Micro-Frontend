@@ -311,12 +311,6 @@ export default function getCustomTheme(mode: PaletteMode): any {
             "&:active": {
               transform: "scale(0.98)",
             },
-            ...(ownerState.size === "small" && {
-              maxHeight: "32px",
-            }),
-            ...(ownerState.size === "medium" && {
-              height: "40px",
-            }),
             ...(ownerState.variant === "contained" &&
               ownerState.color === "primary" && {
                 color: brand[50],
@@ -335,8 +329,8 @@ export default function getCustomTheme(mode: PaletteMode): any {
               borderColor: brand[300],
               color: brand[500],
               "&:hover": {
-                backgroundColor: alpha(brand[300], 0.3),
-                borderColor: brand[200],
+                backgroundColor: alpha(brand[200], 0.3),
+                borderColor: brand[300],
               },
             }),
             ...(ownerState.variant === "text" && {
