@@ -1,18 +1,17 @@
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
-import LoadingButton from "@mui/lab/LoadingButton";
 import {
   Box,
   Button,
   Chip,
-  CircularProgress,
   Container,
   Paper,
   TextField,
-  Typography,
+  Typography
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import axios from "axios";
 import { useState } from "react";
+import { XLoadingButton } from "../core-coponents/XLoadingButton";
 import { useSnackbarUtils } from "../utils/useSnackbarUtils";
 
 export default function EmailForm() {
@@ -201,17 +200,15 @@ export default function EmailForm() {
           />
 
           {/* send button */}
-          <LoadingButton
+          <XLoadingButton
             variant="contained"
             color="primary"
             onClick={handleSend}
             loading={loading}
-            disabled={loading}
             size="large"
-            loadingIndicator={<CircularProgress color="inherit" size={"2em"} />}
           >
             <span>Send</span>
-          </LoadingButton>
+          </XLoadingButton>
         </Box>
       </Paper>
     </Container>
