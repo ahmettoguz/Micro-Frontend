@@ -13,11 +13,11 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { SnackbarProvider } from "notistack";
 import { useState } from "react";
-import { EmailSection } from "./components/EmailSection";
-import Hero from "./components/Hero";
-import XAppBar from "./core/sections/XAppBar";
-import XFooter from "./core/sections/XFooter";
-import { ServiceTest } from "./components/ServiceTest";
+import { EmailSection } from "./components/sections/EmailSection";
+import Hero from "./components/sections/Hero";
+import XAppBar from "./components/core/sections/XAppBar";
+import XFooter from "./components/core/sections/XFooter";
+import { ServiceTest } from "./components/components/ServiceTest";
 import { ThemeModeEnum, ThemeSchemaEnum } from "./enum/ThemeEnum";
 import getCustomTheme from "./utils/getCustomTheme";
 import {
