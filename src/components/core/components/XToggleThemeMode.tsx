@@ -6,6 +6,7 @@ import LaptopChromebookRoundedIcon from "@mui/icons-material/LaptopChromebookRou
 import LaptopRoundedIcon from "@mui/icons-material/LaptopRounded";
 import { ThemeSchemaEnum } from "../../../enum/ThemeEnum";
 import { isThemeChangeEnabled } from "../../../utils/envVars";
+import { t } from "i18next";
 
 interface ToggleColorModeProps {
   themeSchema: string;
@@ -23,8 +24,8 @@ export default function XToggleThemeMode({
           placement="bottom"
           title={
             themeSchema === ThemeSchemaEnum.Custom
-              ? "switch default theme"
-              : "switch custom theme"
+              ? t("appbar.tooltip.themeSchemaDefault")
+              : t("appbar.tooltip.themeSchemaCustom")
           }
         >
           <Box sx={{ maxWidth: "32px" }}>

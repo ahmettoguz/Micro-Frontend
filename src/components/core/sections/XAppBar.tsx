@@ -10,12 +10,13 @@ import Drawer from "@mui/material/Drawer";
 import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+import { t } from "i18next";
 import { useEffect, useState } from "react";
 import logo from "../../../assets/logo.svg";
 import { scrollToSection } from "../../../utils/scrollUtils";
 import XToggleColorMode from "../components/XToggleColorMode";
-import XToggleThemeMode from "../components/XToggleThemeMode";
 import XToggleLanguage from "../components/XToggleLanguage";
+import XToggleThemeMode from "../components/XToggleThemeMode";
 
 interface LogoStyle {
   width: string;
@@ -40,12 +41,12 @@ interface XAppBarProps {
 
 const leftMenuItemIdList = [
   {
-    name: "Email Service",
     id: "email-service",
+    languageId: "emailService",
   },
   {
-    name: "Service Test",
     id: "service-test",
+    languageId: "serviceTest",
   },
 ];
 
@@ -107,7 +108,7 @@ export default function XAppBar({
               sx={{ py: "10px", px: "12px" }}
             >
               <Typography variant="body2" color="text.primary">
-                {item.name}
+                {t(`appbar.menuItem.${item.languageId}`)}
               </Typography>
             </MenuItem>
           ))}
@@ -217,7 +218,7 @@ export default function XAppBar({
                 onClick={() => scrollToSection(item.id, () => setOpen(false))}
                 sx={{ py: "10px", px: "15px" }}
               >
-                {item.name}
+                {t(`appbar.menuItem.${item.languageId}`)}
               </MenuItem>
             ))}
 

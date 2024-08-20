@@ -6,6 +6,7 @@ import Tooltip from "@mui/material/Tooltip";
 import ModeNightRoundedIcon from "@mui/icons-material/ModeNightRounded";
 import WbSunnyRoundedIcon from "@mui/icons-material/WbSunnyRounded";
 import { ThemeModeEnum } from "../../../enum/ThemeEnum";
+import { t } from "i18next";
 
 interface ToggleColorModeProps {
   themeMode: PaletteMode;
@@ -21,8 +22,8 @@ export default function XToggleColorMode({
       placement="bottom"
       title={
         themeMode === ThemeModeEnum.Dark
-          ? "switch light theme"
-          : "switch dark theme"
+          ? t("appbar.tooltip.themeModeLight")
+          : t("appbar.tooltip.themeModeDark")
       }
     >
       <Box sx={{ maxWidth: "32px" }}>

@@ -12,6 +12,10 @@
         "themeSchemaCustom": "custom theme",
         "languageTurkish": "Turkish",
         "languageEnglish": "English"
+      },
+      "menuItem": {
+        "emailService": "Email Service",
+        "serviceTest": "Service Test"
       }
     },
     "footer": {
