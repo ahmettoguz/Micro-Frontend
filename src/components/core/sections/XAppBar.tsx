@@ -148,7 +148,17 @@ export default function XAppBar({
     return (
       <Box sx={{ display: { sm: "", md: "none" } }}>
         {renderDrawerButton()}
-        <Drawer anchor="right" open={open} onClose={toggleDrawer(false)}>
+        <Drawer
+          PaperProps={{
+            sx: {
+              borderTopLeftRadius: "20px",
+              borderBottomLeftRadius: "20px",
+            },
+          }}
+          anchor="right"
+          open={open}
+          onClose={toggleDrawer(false)}
+        >
           <Box
             sx={{
               minWidth: "60dvw",
