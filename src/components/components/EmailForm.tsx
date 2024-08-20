@@ -6,13 +6,13 @@ import {
   Container,
   Paper,
   TextField,
-  Typography
+  Typography,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import axios from "axios";
 import { useState } from "react";
-import { XLoadingButton } from "../core/components/XLoadingButton";
 import { useSnackbarUtils } from "../../utils/useSnackbarUtils";
+import { XLoadingButton } from "../core/components/XLoadingButton";
 
 export default function EmailForm() {
   const { showSnackbar } = useSnackbarUtils();

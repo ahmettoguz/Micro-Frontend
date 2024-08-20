@@ -1,6 +1,6 @@
 import { Box, Link, Typography, useTheme } from "@mui/material";
-import { ThemeModeEnum } from "../../../enum/ThemeEnum";
 import { memo } from "react";
+import { ThemeModeEnum } from "../../../enum/ThemeEnum";
 
 const XFooter = memo(() => {
   const theme = useTheme();

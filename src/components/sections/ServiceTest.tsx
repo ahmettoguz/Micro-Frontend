@@ -2,8 +2,8 @@ import { Box, Container, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import axios from "axios";
 import { useState } from "react";
-import { XLoadingButton } from "../core/components/XLoadingButton";
 import { useSnackbarUtils } from "../../utils/useSnackbarUtils";
+import { XLoadingButton } from "../core/components/XLoadingButton";
 
 export const ServiceTest = () => {
   const theme = useTheme();
@@ -75,6 +75,7 @@ export const ServiceTest = () => {
       }}
     >
       <Box
+        id="service-test"
         sx={{
           textAlign: "center",
           bgcolor: "background.paper",

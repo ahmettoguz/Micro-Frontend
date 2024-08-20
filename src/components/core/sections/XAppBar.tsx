@@ -11,9 +11,9 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { useEffect, useState } from "react";
 import logo from "../../../assets/logo.svg";
+import { scrollToSection } from "../../../utils/scrollUtils";
 import XToggleColorMode from "../components/XToggleColorMode";
 import XToggleThemeMode from "../components/XToggleThemeMode";
-import { scrollToSection } from "../../../utils/scrollUtils";
 
 interface LogoStyle {
   width: string;
@@ -38,6 +38,10 @@ const leftMenuItemIdList = [
   {
     name: "Email Service",
     id: "email-service",
+  },
+  {
+    name: "Service Test",
+    id: "service-test",
   },
 ];
 
