@@ -13,7 +13,7 @@ export default function Hero() {
       id="hero"
       sx={(theme) => ({
         width: "100%",
-        height: "100vh",
+        height: "100dvh",
         backgroundImage:
           theme.palette.mode === "light"
             ? "linear-gradient(180deg, #CEE5FD, #FFF 50%)"

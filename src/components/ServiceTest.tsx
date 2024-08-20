@@ -1,4 +1,4 @@
-import { Box, Button, Container, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import axios from "axios";
 import { useState } from "react";
@@ -28,7 +28,7 @@ export const ServiceTest = () => {
       setLoadingBtnBackendHC(false);
     }
   };
-  
+
   const handleServiceHealthCheck = async () => {
     sestLoadingBtnServiceHC(true);
 
@@ -64,7 +64,16 @@ export const ServiceTest = () => {
   };
 
   return (
-    <Container maxWidth="md" sx={{ py: 4 }}>
+    <Container
+      maxWidth="md"
+      sx={{
+        py: 4,
+        height: "100dvh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       <Box
         sx={{
           textAlign: "center",

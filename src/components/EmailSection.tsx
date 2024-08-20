@@ -6,7 +6,16 @@ import EmailForm from "./EmailForm";
 export const EmailSection = () => {
   const theme = useTheme();
   return (
-    <Container maxWidth="md" sx={{ py: 4 }}>
+    <Container
+      maxWidth="md"
+      sx={{
+        py: 4,
+        height: "100dvh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       <Box
         id="email-service"
         sx={{
@@ -14,6 +23,7 @@ export const EmailSection = () => {
           bgcolor: "background.paper",
           borderRadius: 2,
           boxShadow: 4,
+          width: "100%",
           pt: 3,
           pb: 5,
           backgroundImage:
