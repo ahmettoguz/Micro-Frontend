@@ -1,3 +1,4 @@
+import { LanguageEnum } from "../enum/LanguageEnum";
 import { ThemeModeEnum, ThemeSchemaEnum } from "../enum/ThemeEnum";
 
 export const getStoredThemeMode = () => {
@@ -14,4 +15,12 @@ export const getStoredThemeSchema = () => {
   return Object.values(ThemeSchemaEnum).includes(localStorageVal)
     ? localStorageVal
     : ThemeSchemaEnum.Default;
+};
+
+export const getStoredLanguage = () => {
+  let localStorageVal = localStorage.getItem("language") as LanguageEnum;
+
+  return Object.values(LanguageEnum).includes(localStorageVal)
+    ? localStorageVal
+    : LanguageEnum.En;
 };

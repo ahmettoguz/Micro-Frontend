@@ -1,9 +1,13 @@
 import { Box, Link, Typography, useTheme } from "@mui/material";
 import { memo } from "react";
+import { useSelector } from "react-redux";
 import { ThemeModeEnum } from "../../../enum/ThemeEnum";
+import { RootState } from "../../../store/store";
 
 const XFooter = memo(() => {
   const theme = useTheme();
+  const language = useSelector((state: RootState) => state.language.language);
+
   return (
     <Box
       sx={{
