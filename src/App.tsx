@@ -17,7 +17,7 @@ import { EmailSection } from "./components/sections/EmailSection";
 import Hero from "./components/sections/Hero";
 import XAppBar from "./components/core/sections/XAppBar";
 import XFooter from "./components/core/sections/XFooter";
-import { ServiceTest } from "./components/components/ServiceTest";
+import { ServiceTest } from "./components/sections/ServiceTest";
 import { ThemeModeEnum, ThemeSchemaEnum } from "./enum/ThemeEnum";
 import getCustomTheme from "./utils/getCustomTheme";
 import {
