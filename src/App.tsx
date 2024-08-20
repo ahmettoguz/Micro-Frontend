@@ -46,9 +46,9 @@ export default function App() {
 
   const toggleLanguage = () => {
     const newLanguage =
-      currentLanguage === LanguageEnum.Tr.code
-        ? LanguageEnum.En.code
-        : LanguageEnum.Tr.code;
+      currentLanguage === LanguageEnum.Tr
+        ? LanguageEnum.En
+        : LanguageEnum.Tr;
     setCurrentLanguage(newLanguage);
     changeLanguage(newLanguage);
   };

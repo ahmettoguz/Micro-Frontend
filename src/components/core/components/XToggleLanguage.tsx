@@ -20,7 +20,7 @@ export default function XToggleLanguage({
     <Tooltip
       placement="bottom"
       title={t(
-        language === LanguageEnum.En.code
+        language === LanguageEnum.En
           ? "appbar.tooltip.languageTurkish"
           : "appbar.tooltip.languageEnglish"
       )}
