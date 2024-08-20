@@ -38,6 +38,7 @@ const XFooter = memo(() => {
           sx={{
             textDecoration: "none",
             "&:hover": {},
+            userSelect: "none",
           }}
         >
           {t("footer.developer")}

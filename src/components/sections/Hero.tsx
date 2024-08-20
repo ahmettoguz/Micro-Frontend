@@ -93,7 +93,7 @@ export default function Hero() {
               },
             }}
           >
-            Discover
+            {t("hero.discover")}
           </Button>
         </Stack>
       </Container>
