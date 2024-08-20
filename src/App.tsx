@@ -8,11 +8,13 @@ import "@fontsource/montserrat/400.css";
 import "@fontsource/montserrat/500.css";
 import "@fontsource/montserrat/700.css";
 
+// import "@mui/material/styles/styled";
 import { Container, Divider, PaletteMode } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { SnackbarProvider } from "notistack";
 import { useState } from "react";
+import XScrollTop from "./components/core/components/XScrollTop";
 import XAppBar from "./components/core/sections/XAppBar";
 import XFooter from "./components/core/sections/XFooter";
 import { EmailSection } from "./components/sections/EmailSection";
@@ -94,7 +96,9 @@ export default function App() {
 
           <ServiceTest />
         </Container>
+
         <XFooter />
+        <XScrollTop />
       </ThemeProvider>
     </SnackbarProvider>
   );
