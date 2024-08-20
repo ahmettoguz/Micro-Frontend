@@ -21,6 +21,7 @@ import { EmailSection } from "./components/sections/EmailSection";
 import Hero from "./components/sections/Hero";
 import { ServiceTest } from "./components/sections/ServiceTest";
 import { ThemeModeEnum, ThemeSchemaEnum } from "./enum/ThemeEnum";
+import GlobalScrollbarStyles from "./styles/GlobalScrollbarStyles";
 import getCustomTheme from "./utils/getCustomTheme";
 import {
   getStoredThemeMode,
@@ -70,6 +71,7 @@ export default function App() {
           themeSchema === ThemeSchemaEnum.Custom ? customTheme : defaultTheme
         }
       >
+        <GlobalScrollbarStyles />
         <CssBaseline />
 
         <XAppBar
