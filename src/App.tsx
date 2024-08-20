@@ -11,23 +11,24 @@ import "@fontsource/montserrat/700.css";
 import { Container, Divider, PaletteMode } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { SnackbarProvider } from "notistack";
 import { useState } from "react";
 import { EmailSection } from "./components/EmailSection";
 import Hero from "./components/Hero";
 import XAppBar from "./components/sections/XAppBar";
 import XFooter from "./components/sections/XFooter";
+import { ServiceTest } from "./components/ServiceTest";
 import { ThemeModeEnum, ThemeSchemaEnum } from "./enum/ThemeEnum";
 import getCustomTheme from "./utils/getCustomTheme";
 import {
   getStoredThemeMode,
   getStoredThemeSchema,
 } from "./utils/localStorageUtils";
-import { ServiceTest } from "./components/ServiceTest";
 
 const storedThemeMode = getStoredThemeMode();
 const storedThemeSchema = getStoredThemeSchema();
 
-function App() {
+export default function App() {
   const [themeMode, setThemeMode] = useState<PaletteMode>(storedThemeMode);
   const [themeSchema, setThemeSchema] = useState(storedThemeSchema);
 
@@ -58,40 +59,43 @@ function App() {
   };
 
   return (
-    <ThemeProvider
-      theme={
-        themeSchema === ThemeSchemaEnum.Custom ? customTheme : defaultTheme
-      }
+    <SnackbarProvider
+      maxSnack={5}
+      anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
     >
-      <CssBaseline />
-
-      <XAppBar
-        themeMode={themeMode}
-        themeSchema={themeSchema}
-        toggleColorMode={toggleColorMode}
-        toggleTheme={toggleTheme}
-      />
-
-      <Hero />
-
-      <Divider />
-
-      <Container
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          mb: 5,
-        }}
+      <ThemeProvider
+        theme={
+          themeSchema === ThemeSchemaEnum.Custom ? customTheme : defaultTheme
+        }
       >
-        <EmailSection />
+        <CssBaseline />
+
+        <XAppBar
+          themeMode={themeMode}
+          themeSchema={themeSchema}
+          toggleColorMode={toggleColorMode}
+          toggleTheme={toggleTheme}
+        />
+
+        <Hero />
 
         <Divider />
-        
-        <ServiceTest />
-      </Container>
-      <XFooter />
-    </ThemeProvider>
+
+        <Container
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            mb: 5,
+          }}
+        >
+          <EmailSection />
+
+          <Divider />
+
+          <ServiceTest />
+        </Container>
+        <XFooter />
+      </ThemeProvider>
+    </SnackbarProvider>
   );
 }
-
-export default App;
