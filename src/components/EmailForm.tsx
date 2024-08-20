@@ -1,30 +1,26 @@
-import { useState } from "react";
+import PersonAddIcon from "@mui/icons-material/PersonAdd";
+import LoadingButton from "@mui/lab/LoadingButton";
 import {
-  TextField,
-  Button,
   Box,
-  Paper,
-  Typography,
+  Button,
   Chip,
   CircularProgress,
   Container,
+  Paper,
+  TextField,
+  Typography,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import axios from "axios";
-import XSnackbar from "../core-coponents/XSnackbar";
-import LoadingButton from "@mui/lab/LoadingButton";
+import { useState } from "react";
+import { useSnackbarUtils } from "../utils/useSnackbarUtils";
 
 export default function EmailForm() {
+  const { showSnackbar } = useSnackbarUtils();
   const [emailReceivers, setEmailReceivers] = useState([]);
   const [emailReceiver, setEmailReceiver] = useState("");
   const [content, setContent] = useState("");
   const [loading, setLoading] = useState(false);
-  const [snackbarConfigs, setSnackbarConfigs] = useState({
-    isOpen: false,
-    message: "",
-    color: "",
-  });
   const [contentError, setContentError] = useState(false);
   const [receiversError, setReceiversError] = useState(false);
 
@@ -39,11 +35,7 @@ export default function EmailForm() {
       setEmailReceiver("");
       setReceiversError(false);
     } else {
-      setSnackbarConfigs({
-        isOpen: true,
-        color: "error",
-        message: "Please add a unique receiver.",
-      });
+      showSnackbar("Please add a unique receiver.", "error");
     }
   };
 
@@ -73,11 +65,7 @@ export default function EmailForm() {
     }
 
     if (hasError) {
-      setSnackbarConfigs({
-        isOpen: true,
-        color: "error",
-        message: "Fill required fields!",
-      });
+      showSnackbar("Fill required fields!", "error");
       return;
     }
 
@@ -93,17 +81,9 @@ export default function EmailForm() {
         }
       );
 
-      setSnackbarConfigs({
-        isOpen: true,
-        color: "success",
-        message: "Email sent successfully!",
-      });
+      showSnackbar("Email sent successfully!", "success");
     } catch (error) {
-      setSnackbarConfigs({
-        isOpen: true,
-        color: "error",
-        message: "Email could not be sent.",
-      });
+      showSnackbar("Email could not be sent.", "error");
     } finally {
       setLoading(false);
     }
@@ -233,8 +213,6 @@ export default function EmailForm() {
             <span>Send</span>
           </LoadingButton>
         </Box>
-
-        <XSnackbar onCallback={setSnackbarConfigs} configs={snackbarConfigs} />
       </Paper>
     </Container>
   );
