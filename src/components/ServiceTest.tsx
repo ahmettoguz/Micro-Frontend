@@ -51,10 +51,13 @@ export const ServiceTest = () => {
 
         <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
           <Button variant="outlined" color="primary">
-            Service Health Check
+            Backend Health Check
           </Button>
           <Button variant="contained" color="primary">
             Service Test
+          </Button>
+          <Button variant="outlined" color="primary">
+            Service Health Check
           </Button>
         </Box>
       </Box>
