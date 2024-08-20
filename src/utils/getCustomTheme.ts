@@ -579,10 +579,13 @@ export default function getCustomTheme(mode: PaletteMode): any {
       MuiLoadingButton: {
         styleOverrides: {
           root: {
-            boxShadow: "0 3px 4px rgba(0,123,255,0.5)",
+            boxShadow: "0 1px 4px rgba(0,123,255,0.5)",
             "&:disabled": {
               background:
                 "linear-gradient(90deg, rgba(33,150,243,0.5) 0%, rgba(30,87,153,0.5) 100%)",
+            },
+            "&:hover": {
+              boxShadow: "0 2px 4px rgba(0,123,255,0.5)",
             },
             "& .MuiCircularProgress-root": {
               color: "white",
