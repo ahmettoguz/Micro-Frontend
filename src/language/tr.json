@@ -12,6 +12,9 @@
         "languageTurkish": "Türkçe",
         "languageEnglish": "İngilizce"
       }
+    },
+    "footer": {
+      "developer": "Geliştiren Ahmet Oğuz Ergin"
     }
   }
 }
