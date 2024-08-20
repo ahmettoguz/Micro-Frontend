@@ -25,6 +25,13 @@
       "emailReceiver": "Email Alıcısı",
       "emailContent": "Email İçeriği"
     },
+    "test": {
+      "microServiceTest": "Mikro Hizmet Testi",
+      "checkTheStatus": "Çalışan servislerin durumunu kontrol edin. Servislerin sorunsuz bir şekilde çalıştığından emin olmalısınız.",
+      "backendHealthCheck": "Backend Durum Kontrolü",
+      "serviceTest": "Hizmet Testi",
+      "serviceHealthCheck": "Service Durum Kontrolü"
+    },
     "footer": {
       "developer": "Geliştiren Ahmet Oğuz Ergin"
     },

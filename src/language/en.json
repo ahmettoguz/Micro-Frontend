@@ -25,6 +25,13 @@
       "emailReceiver": "Email Receiver",
       "emailContent": "Email Content"
     },
+    "test": {
+      "microServiceTest": "Micro Service Test",
+      "checkTheStatus": "Check the status and health of our services. Ensure everything is running smoothly.",
+      "backendHealthCheck": "Backend Health Check",
+      "serviceTest": "Service Test",
+      "serviceHealthCheck": "Service Health Check"
+    },
     "footer": {
       "developer": "Developed by Ahmet Oğuz Ergin"
     },
