@@ -27,6 +27,8 @@ import {
   getStoredThemeMode,
   getStoredThemeSchema,
 } from "./utils/localStorageUtils";
+import { useTranslation } from "react-i18next";
+import { LanguageEnum } from "./enum/LanguageEnum";
 
 const storedThemeMode = getStoredThemeMode();
 const storedThemeSchema = getStoredThemeSchema();
@@ -34,9 +36,22 @@ const storedThemeSchema = getStoredThemeSchema();
 export default function App() {
   const [themeMode, setThemeMode] = useState<PaletteMode>(storedThemeMode);
   const [themeSchema, setThemeSchema] = useState(storedThemeSchema);
-
   const customTheme = createTheme(getCustomTheme(themeMode));
   const defaultTheme = createTheme({ palette: { mode: themeMode } });
+  const {
+    t,
+    i18n: { changeLanguage, language },
+  } = useTranslation();
+  const [currentLanguage, setCurrentLanguage] = useState(language);
+
+  const toggleLanguage = () => {
+    const newLanguage =
+      currentLanguage === LanguageEnum.Tr.code
+        ? LanguageEnum.En.code
+        : LanguageEnum.Tr.code;
+    setCurrentLanguage(newLanguage);
+    changeLanguage(newLanguage);
+  };
 
   const toggleColorMode = () => {
     setThemeMode((prevMode) => {
@@ -75,6 +90,8 @@ export default function App() {
         <CssBaseline />
 
         <XAppBar
+          language={currentLanguage}
+          toggleLanguage={toggleLanguage}
           themeMode={themeMode}
           themeSchema={themeSchema}
           toggleColorMode={toggleColorMode}

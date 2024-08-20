@@ -30,7 +30,7 @@ export default function XToggleColorMode({
           variant="text"
           onClick={toggleColorMode}
           size="small"
-          aria-label="button to toggle theme"
+          aria-label="button to toggle color"
           sx={{ minWidth: "32px", height: "32px", p: "4px" }}
         >
           {themeMode === ThemeModeEnum.Dark ? (

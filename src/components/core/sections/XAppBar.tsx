@@ -15,6 +15,7 @@ import logo from "../../../assets/logo.svg";
 import { scrollToSection } from "../../../utils/scrollUtils";
 import XToggleColorMode from "../components/XToggleColorMode";
 import XToggleThemeMode from "../components/XToggleThemeMode";
+import XToggleLanguage from "../components/XToggleLanguage";
 
 interface LogoStyle {
   width: string;
@@ -29,10 +30,12 @@ const logoStyle: LogoStyle = {
 };
 
 interface XAppBarProps {
+  language: string;
   themeMode: PaletteMode;
   themeSchema: string;
   toggleColorMode: () => void;
   toggleTheme: () => void;
+  toggleLanguage: () => void;
 }
 
 const leftMenuItemIdList = [
@@ -47,10 +50,12 @@ const leftMenuItemIdList = [
 ];
 
 export default function XAppBar({
+  language,
   themeMode,
   themeSchema,
   toggleColorMode,
   toggleTheme,
+  toggleLanguage,
 }: XAppBarProps) {
   const [open, setOpen] = useState(false);
   const [scrolledToBottom, setScrolledToBottom] = useState(false);
@@ -126,6 +131,8 @@ export default function XAppBar({
         />
 
         <XToggleThemeMode themeSchema={themeSchema} toggleTheme={toggleTheme} />
+
+        <XToggleLanguage language={language} toggleLanguage={toggleLanguage} />
       </Box>
     );
   };
@@ -183,6 +190,11 @@ export default function XAppBar({
               <XToggleThemeMode
                 themeSchema={themeSchema}
                 toggleTheme={toggleTheme}
+              />
+
+              <XToggleLanguage
+                language={language}
+                toggleLanguage={toggleLanguage}
               />
 
               {/* close drawer button */}

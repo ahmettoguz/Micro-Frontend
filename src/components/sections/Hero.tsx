@@ -4,10 +4,13 @@ import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { appDescription, appName } from "../../utils/envVars";
+import { useTranslation } from "react-i18next";
+import { appName } from "../../utils/envVars";
 import { scrollToSection } from "../../utils/scrollUtils";
 
 export default function Hero() {
+  const { t } = useTranslation();
+
   return (
     <Box
       id="hero"
@@ -68,7 +71,7 @@ export default function Hero() {
             color="text.secondary"
             sx={{ alignSelf: "center", width: { sm: "100%", md: "90%" } }}
           >
-            {appDescription}
+            {t("hero.appDescription", { appIcon: "🚀" })}
           </Typography>
 
           <Button

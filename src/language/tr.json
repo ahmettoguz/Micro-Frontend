@@ -1,0 +1,17 @@
+{
+  "translation": {
+    "hero": {
+      "appDescription": "Bu proje, Docker ile hizmetleri yönetmek için bir arayüz sağlar ve TLS ve HTTPS üzerinden güvenli iletişimi destekler. Docker, hizmetleri izole ederek ölçeklenebilirlik ve bakım kolaylığı sağlar, TLS ise mikro hizmetler ve kullanıcılar arasındaki güvenli etkileşimleri garanti eder. {{appIcon}}"
+    },
+    "appbar": {
+      "tooltip": {
+        "themeModeDark": "karanlık mod",
+        "themeModeLight": "aydınlık mod",
+        "themeSchemaDefault": "varsayılan tema",
+        "themeSchemaCustom": "özel tema",
+        "languageTurkish": "Türkçe",
+        "languageEnglish": "İngilizce"
+      }
+    }
+  }
+}

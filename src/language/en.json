@@ -1,0 +1,17 @@
+{
+  "translation": {
+    "hero": {
+      "appDescription": "This project provides an interface for managing services with Docker and supports secure communication through TLS and HTTPS. Docker isolates services to enhance scalability and maintainability, while TLS ensures secure interactions between microservices and users. {{appIcon}}"
+    },
+    "appbar": {
+      "tooltip": {
+        "themeModeDark": "dark mode",
+        "themeModeLight": "light mode",
+        "themeSchemaDefault": "default theme",
+        "themeSchemaCustom": "custom theme",
+        "languageTurkish": "Turkish",
+        "languageEnglish": "English"
+      }
+    }
+  }
+}
