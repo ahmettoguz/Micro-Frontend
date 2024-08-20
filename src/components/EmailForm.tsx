@@ -11,7 +11,7 @@ import {
 import { useTheme } from "@mui/material/styles";
 import axios from "axios";
 import { useState } from "react";
-import { XLoadingButton } from "../core-coponents/XLoadingButton";
+import { XLoadingButton } from "../core/components/XLoadingButton";
 import { useSnackbarUtils } from "../utils/useSnackbarUtils";
 
 export default function EmailForm() {

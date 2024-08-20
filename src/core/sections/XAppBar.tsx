@@ -11,8 +11,8 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { useEffect, useState } from "react";
 import logo from "../../assets/logo.svg";
-import XToggleColorMode from "../../core-coponents/XToggleColorMode";
-import XToggleThemeMode from "../../core-coponents/XToggleThemeMode";
+import XToggleColorMode from "../components/XToggleColorMode";
+import XToggleThemeMode from "../components/XToggleThemeMode";
 import { scrollToSection } from "../../utils/scrollUtils";
 
 interface LogoStyle {

@@ -5,7 +5,7 @@ import Tooltip from "@mui/material/Tooltip";
 
 import ModeNightRoundedIcon from "@mui/icons-material/ModeNightRounded";
 import WbSunnyRoundedIcon from "@mui/icons-material/WbSunnyRounded";
-import { ThemeModeEnum } from "../enum/ThemeEnum";
+import { ThemeModeEnum } from "../../enum/ThemeEnum";
 
 interface ToggleColorModeProps {
   themeMode: PaletteMode;

@@ -4,8 +4,8 @@ import Tooltip from "@mui/material/Tooltip";
 
 import LaptopChromebookRoundedIcon from "@mui/icons-material/LaptopChromebookRounded";
 import LaptopRoundedIcon from "@mui/icons-material/LaptopRounded";
-import { ThemeSchemaEnum } from "../enum/ThemeEnum";
-import { isThemeChangeEnabled } from "../utils/envVars";
+import { ThemeSchemaEnum } from "../../enum/ThemeEnum";
+import { isThemeChangeEnabled } from "../../utils/envVars";
 
 interface ToggleColorModeProps {
   themeSchema: string;
