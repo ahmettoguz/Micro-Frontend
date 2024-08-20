@@ -1,3 +1,4 @@
+import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import MenuIcon from "@mui/icons-material/Menu";
 import { PaletteMode } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
@@ -72,8 +73,8 @@ export default function XAppBar({
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleDrawer = (newOpen: boolean) => () => {
-    setOpen(newOpen);
+  const toggleDrawer = (isOpen: boolean) => () => {
+    setOpen(isOpen);
   };
 
   // render part
@@ -161,6 +162,7 @@ export default function XAppBar({
                 display: "flex",
                 justifyContent: "flex-end",
                 flexGrow: 1,
+                pb: 1,
               }}
             >
               <XToggleColorMode
@@ -172,6 +174,19 @@ export default function XAppBar({
                 themeSchema={themeSchema}
                 toggleTheme={toggleTheme}
               />
+
+              {/* close drawer button */}
+              <Box sx={{ maxWidth: "32px", marginLeft: "auto" }}>
+                <Button
+                  variant="text"
+                  onClick={toggleDrawer(false)}
+                  size="small"
+                  aria-label="button to close drawer"
+                  sx={{ minWidth: "32px", height: "32px", p: "4px" }}
+                >
+                  <CloseRoundedIcon fontSize="medium" />
+                </Button>
+              </Box>
             </Box>
 
             {leftMenuItemIdList.map((item) => (
