@@ -1,21 +1,20 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { changeLanguage } from "i18next";
+import { LanguageEnum } from "../../enum/LanguageEnum";
 import { getStoredLanguage } from "../../utils/localStorageUtils";
 
-export interface LanguageState {
-  language: string;
-}
-
-const initialState: LanguageState = {
-  language: getStoredLanguage(),
-};
+const storedLanguage = getStoredLanguage();
 
 const languageSlice = createSlice({
   name: "language",
-  initialState,
+  initialState: storedLanguage,
   reducers: {
-    setLanguage: (state, action: PayloadAction<string>) => {
-      state.language = action.payload;
+    setLanguage: (state, action: PayloadAction<LanguageEnum>) => {
+      console.log("aciton paylodd");
+      console.log(action.payload);
       localStorage.setItem("language", action.payload);
+      changeLanguage(action.payload);
+      return action.payload;
     },
   },
 });

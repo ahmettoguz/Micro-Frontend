@@ -1,6 +1,5 @@
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import MenuIcon from "@mui/icons-material/Menu";
-import { PaletteMode } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -16,7 +15,7 @@ import logo from "../../../assets/logo.svg";
 import { scrollToSection } from "../../../utils/scrollUtils";
 import XToggleColorMode from "../components/XToggleColorMode";
 import XToggleLanguage from "../components/XToggleLanguage";
-import XToggleThemeMode from "../components/XToggleThemeMode";
+import XToggleThemeSchema from "../components/XToggleThemeSchema";
 
 interface LogoStyle {
   width: string;
@@ -30,13 +29,6 @@ const logoStyle: LogoStyle = {
   cursor: "pointer",
 };
 
-interface XAppBarProps {
-  language: string;
-  themeSchema: string;
-  toggleTheme: () => void;
-  toggleLanguage: () => void;
-}
-
 const leftMenuItemIdList = [
   {
     id: "email-service",
@@ -48,12 +40,7 @@ const leftMenuItemIdList = [
   },
 ];
 
-export default function XAppBar({
-  language,
-  themeSchema,
-  toggleTheme,
-  toggleLanguage,
-}: XAppBarProps) {
+export default function XAppBar() {
   const [open, setOpen] = useState(false);
   const [scrolledToBottom, setScrolledToBottom] = useState(false);
 
@@ -124,9 +111,9 @@ export default function XAppBar({
       >
         <XToggleColorMode />
 
-        <XToggleThemeMode themeSchema={themeSchema} toggleTheme={toggleTheme} />
+        <XToggleThemeSchema />
 
-        <XToggleLanguage language={language} toggleLanguage={toggleLanguage} />
+        <XToggleLanguage />
       </Box>
     );
   };
@@ -178,15 +165,9 @@ export default function XAppBar({
             >
               <XToggleColorMode />
 
-              <XToggleThemeMode
-                themeSchema={themeSchema}
-                toggleTheme={toggleTheme}
-              />
+              <XToggleThemeSchema />
 
-              <XToggleLanguage
-                language={language}
-                toggleLanguage={toggleLanguage}
-              />
+              <XToggleLanguage />
 
               {/* close drawer button */}
               <Box sx={{ maxWidth: "32px", marginLeft: "auto" }}>

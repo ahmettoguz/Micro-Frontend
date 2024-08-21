@@ -6,7 +6,7 @@ import { getStoredThemeMode } from "../../utils/localStorageUtils";
 const storedThemeMode = getStoredThemeMode();
 
 const themeModeSlice = createSlice({
-  name: "theme",
+  name: "themeMode",
   initialState: storedThemeMode as PaletteMode,
   reducers: {
     toggleThemeMode: (state) => {

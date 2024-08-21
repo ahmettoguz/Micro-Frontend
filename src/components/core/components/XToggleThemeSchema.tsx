@@ -4,19 +4,20 @@ import Tooltip from "@mui/material/Tooltip";
 
 import LaptopChromebookRoundedIcon from "@mui/icons-material/LaptopChromebookRounded";
 import LaptopRoundedIcon from "@mui/icons-material/LaptopRounded";
-import { ThemeSchemaEnum } from "../../../enum/ThemeEnum";
-import { isThemeChangeEnabled } from "../../../utils/envVars";
 import { t } from "i18next";
+import { useDispatch, useSelector } from "react-redux";
+import { ThemeSchemaEnum } from "../../../enum/ThemeEnum";
+import { toggleThemeSchema } from "../../../store/slice/themeSchemaSlice";
+import { RootState } from "../../../store/store";
+import { isThemeChangeEnabled } from "../../../utils/envVars";
 
-interface ToggleColorModeProps {
-  themeSchema: string;
-  toggleTheme: () => void;
-}
+export default function XToggleThemeSchema() {
+  const dispatch = useDispatch();
+  const themeSchema = useSelector((state: RootState) => state.themeSchema);
 
-export default function XToggleThemeMode({
-  themeSchema,
-  toggleTheme,
-}: ToggleColorModeProps) {
+  const handleToggle = () => {
+    dispatch(toggleThemeSchema());
+  };
   return (
     <>
       {isThemeChangeEnabled ? (
@@ -31,7 +32,7 @@ export default function XToggleThemeMode({
           <Box sx={{ maxWidth: "32px" }}>
             <Button
               variant="text"
-              onClick={toggleTheme}
+              onClick={handleToggle}
               size="small"
               aria-label="button to toggle theme"
               sx={{ minWidth: "32px", height: "32px", p: "4px" }}
