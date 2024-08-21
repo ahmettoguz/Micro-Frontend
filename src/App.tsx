@@ -9,7 +9,7 @@ import "@fontsource/montserrat/500.css";
 import "@fontsource/montserrat/700.css";
 
 // import "@mui/material/styles/styled";
-import { Container, Divider } from "@mui/material";
+import { Container, Divider, PaletteMode } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { SnackbarProvider } from "notistack";
@@ -32,7 +32,9 @@ import { getStoredThemeSchema } from "./utils/localStorageUtils";
 const storedThemeSchema = getStoredThemeSchema();
 
 export default function App() {
-  const themeMode = useSelector((state: RootState) => state.themeMode);
+  const themeMode: PaletteMode = useSelector(
+    (state: RootState) => state.themeMode
+  );
   const [themeSchema, setThemeSchema] = useState(storedThemeSchema);
   const customTheme = createTheme(getCustomTheme(themeMode));
   const defaultTheme = createTheme({ palette: { mode: themeMode } });
