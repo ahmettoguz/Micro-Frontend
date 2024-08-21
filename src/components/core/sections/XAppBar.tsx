@@ -32,9 +32,7 @@ const logoStyle: LogoStyle = {
 
 interface XAppBarProps {
   language: string;
-  themeMode: PaletteMode;
   themeSchema: string;
-  toggleColorMode: () => void;
   toggleTheme: () => void;
   toggleLanguage: () => void;
 }
@@ -52,9 +50,7 @@ const leftMenuItemIdList = [
 
 export default function XAppBar({
   language,
-  themeMode,
   themeSchema,
-  toggleColorMode,
   toggleTheme,
   toggleLanguage,
 }: XAppBarProps) {
@@ -126,10 +122,7 @@ export default function XAppBar({
           alignItems: "center",
         }}
       >
-        <XToggleColorMode
-          themeMode={themeMode}
-          toggleColorMode={toggleColorMode}
-        />
+        <XToggleColorMode />
 
         <XToggleThemeMode themeSchema={themeSchema} toggleTheme={toggleTheme} />
 
@@ -183,10 +176,7 @@ export default function XAppBar({
                 pb: 1,
               }}
             >
-              <XToggleColorMode
-                themeMode={themeMode}
-                toggleColorMode={toggleColorMode}
-              />
+              <XToggleColorMode />
 
               <XToggleThemeMode
                 themeSchema={themeSchema}
