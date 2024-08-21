@@ -1,4 +1,5 @@
 import { Box, Link, Typography, useTheme } from "@mui/material";
+import { t } from "i18next";
 import { memo } from "react";
 import { useSelector } from "react-redux";
 import { ThemeModeEnum } from "../../../enum/ThemeEnum";
@@ -37,9 +38,10 @@ const XFooter = memo(() => {
           sx={{
             textDecoration: "none",
             "&:hover": {},
+            userSelect: "none",
           }}
         >
-          Developed by Ahmet Oğuz Ergin
+          {t("footer.developer")}
         </Link>
       </Typography>
     </Box>

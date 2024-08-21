@@ -1,36 +1,38 @@
-import { PaletteMode } from "@mui/material";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 
 import ModeNightRoundedIcon from "@mui/icons-material/ModeNightRounded";
 import WbSunnyRoundedIcon from "@mui/icons-material/WbSunnyRounded";
+import { t } from "i18next";
+import { useDispatch, useSelector } from "react-redux";
 import { ThemeModeEnum } from "../../../enum/ThemeEnum";
+import { toggleThemeMode } from "../../../store/slice/themeModeSlice";
+import { RootState } from "../../../store/store";
 
-interface ToggleColorModeProps {
-  themeMode: PaletteMode;
-  toggleColorMode: () => void;
-}
+export default function XToggleColorMode() {
+  const dispatch = useDispatch();
+  const themeMode = useSelector((state: RootState) => state.themeMode);
 
-export default function XToggleColorMode({
-  themeMode,
-  toggleColorMode,
-}: ToggleColorModeProps) {
+  const handleToggle = () => {
+    dispatch(toggleThemeMode());
+  };
+
   return (
     <Tooltip
       placement="bottom"
       title={
         themeMode === ThemeModeEnum.Dark
-          ? "switch light theme"
-          : "switch dark theme"
+          ? t("appbar.tooltip.themeModeLight")
+          : t("appbar.tooltip.themeModeDark")
       }
     >
       <Box sx={{ maxWidth: "32px" }}>
         <Button
           variant="text"
-          onClick={toggleColorMode}
+          onClick={handleToggle}
           size="small"
-          aria-label="button to toggle theme"
+          aria-label="button to toggle color"
           sx={{ minWidth: "32px", height: "32px", p: "4px" }}
         >
           {themeMode === ThemeModeEnum.Dark ? (

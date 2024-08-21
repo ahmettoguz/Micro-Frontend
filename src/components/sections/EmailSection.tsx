@@ -1,5 +1,6 @@
 import { Box, Container, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import { t } from "i18next";
 import { ThemeModeEnum } from "../../enum/ThemeEnum";
 import EmailForm from "../components/EmailForm";
 
@@ -46,7 +47,7 @@ export const EmailSection = () => {
             color: "text.primary",
           }}
         >
-          Email Service
+          {t("emailService.emailService")}
         </Typography>
 
         <EmailForm />

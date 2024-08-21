@@ -4,6 +4,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useSnackbarUtils } from "../../utils/useSnackbarUtils";
 import { XLoadingButton } from "../core/components/XLoadingButton";
+import { t } from "i18next";
 
 export const ServiceTest = () => {
   const theme = useTheme();
@@ -105,7 +106,7 @@ export const ServiceTest = () => {
             fontSize: { xs: "1.5rem", md: "2rem" },
           }}
         >
-          Micro Service Test
+          {t("test.microServiceTest")}
         </Typography>
         <Typography
           variant="body1"
@@ -114,8 +115,7 @@ export const ServiceTest = () => {
             color: "text.secondary",
           }}
         >
-          Check the status and health of our services. Ensure everything is
-          running smoothly.
+          {t("test.checkTheStatus")}
         </Typography>
 
         <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
@@ -126,7 +126,7 @@ export const ServiceTest = () => {
             loading={loadingBtnBackendHC}
             onClick={handleBackendHealthCheck}
           >
-            <span>Backend Health Check</span>
+            <span> {t("test.backendHealthCheck")}</span>
           </XLoadingButton>
 
           <XLoadingButton
@@ -136,7 +136,7 @@ export const ServiceTest = () => {
             loading={loadingBtnService}
             onClick={handleEmailServiceTest}
           >
-            <span>Service Test</span>
+            <span>{t("test.serviceTest")}</span>
           </XLoadingButton>
 
           <XLoadingButton
@@ -146,7 +146,7 @@ export const ServiceTest = () => {
             loading={loadingBtnServiceHC}
             onClick={handleServiceHealthCheck}
           >
-            <span>Service Health Check</span>
+            <span>{t("test.serviceHealthCheck")}</span>
           </XLoadingButton>
         </Box>
       </Box>

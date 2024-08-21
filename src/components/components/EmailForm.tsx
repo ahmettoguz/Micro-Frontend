@@ -13,6 +13,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useSnackbarUtils } from "../../utils/useSnackbarUtils";
 import { XLoadingButton } from "../core/components/XLoadingButton";
+import { t } from "i18next";
 
 export default function EmailForm() {
   const { showSnackbar } = useSnackbarUtils();
@@ -112,7 +113,7 @@ export default function EmailForm() {
           gutterBottom
           sx={{ fontWeight: "bold" }}
         >
-          Send Email
+          {t("emailService.sendEmail")}
         </Typography>
 
         <Typography
@@ -120,7 +121,7 @@ export default function EmailForm() {
           gutterBottom
           sx={{ color: "text.secondary", mb: 3 }}
         >
-          Fill in the details below to send your message.
+          {t("emailService.fillInDetails")}
         </Typography>
 
         {/* form */}
@@ -138,7 +139,7 @@ export default function EmailForm() {
           <Box sx={{ display: "flex", gap: 1, alignItems: "flex-start" }}>
             <TextField
               fullWidth
-              label="Email Receiver"
+              label={t("emailService.emailReceiver")}
               value={emailReceiver}
               onChange={(e) => setEmailReceiver(e.target.value)}
               variant="outlined"
@@ -185,7 +186,7 @@ export default function EmailForm() {
           {/* email content text field */}
           <TextField
             fullWidth
-            label="Email Content"
+            label={t("emailService.emailContent")}
             value={content}
             onChange={(e) => {
               setContent(e.target.value);
@@ -207,7 +208,7 @@ export default function EmailForm() {
             loading={loading}
             size="large"
           >
-            <span>Send</span>
+            <span>{t("common.send")}</span>
           </XLoadingButton>
         </Box>
       </Paper>

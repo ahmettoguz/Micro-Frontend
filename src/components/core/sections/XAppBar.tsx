@@ -1,6 +1,5 @@
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import MenuIcon from "@mui/icons-material/Menu";
-import { PaletteMode } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -10,11 +9,13 @@ import Drawer from "@mui/material/Drawer";
 import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+import { t } from "i18next";
 import { useEffect, useState } from "react";
 import logo from "../../../assets/logo.svg";
 import { scrollToSection } from "../../../utils/scrollUtils";
 import XToggleColorMode from "../components/XToggleColorMode";
-import XToggleThemeMode from "../components/XToggleThemeMode";
+import XToggleLanguage from "../components/XToggleLanguage";
+import XToggleThemeSchema from "../components/XToggleThemeSchema";
 
 interface LogoStyle {
   width: string;
@@ -28,30 +29,18 @@ const logoStyle: LogoStyle = {
   cursor: "pointer",
 };
 
-interface XAppBarProps {
-  themeMode: PaletteMode;
-  themeSchema: string;
-  toggleColorMode: () => void;
-  toggleTheme: () => void;
-}
-
 const leftMenuItemIdList = [
   {
-    name: "Email Service",
     id: "email-service",
+    languageId: "emailService",
   },
   {
-    name: "Service Test",
     id: "service-test",
+    languageId: "serviceTest",
   },
 ];
 
-export default function XAppBar({
-  themeMode,
-  themeSchema,
-  toggleColorMode,
-  toggleTheme,
-}: XAppBarProps) {
+export default function XAppBar() {
   const [open, setOpen] = useState(false);
   const [scrolledToBottom, setScrolledToBottom] = useState(false);
 
@@ -102,7 +91,7 @@ export default function XAppBar({
               sx={{ py: "10px", px: "12px" }}
             >
               <Typography variant="body2" color="text.primary">
-                {item.name}
+                {t(`appbar.menuItem.${item.languageId}`)}
               </Typography>
             </MenuItem>
           ))}
@@ -120,12 +109,11 @@ export default function XAppBar({
           alignItems: "center",
         }}
       >
-        <XToggleColorMode
-          themeMode={themeMode}
-          toggleColorMode={toggleColorMode}
-        />
+        <XToggleColorMode />
 
-        <XToggleThemeMode themeSchema={themeSchema} toggleTheme={toggleTheme} />
+        <XToggleThemeSchema />
+
+        <XToggleLanguage />
       </Box>
     );
   };
@@ -175,15 +163,11 @@ export default function XAppBar({
                 pb: 1,
               }}
             >
-              <XToggleColorMode
-                themeMode={themeMode}
-                toggleColorMode={toggleColorMode}
-              />
+              <XToggleColorMode />
 
-              <XToggleThemeMode
-                themeSchema={themeSchema}
-                toggleTheme={toggleTheme}
-              />
+              <XToggleThemeSchema />
+
+              <XToggleLanguage />
 
               {/* close drawer button */}
               <Box sx={{ maxWidth: "32px", marginLeft: "auto" }}>
@@ -205,7 +189,7 @@ export default function XAppBar({
                 onClick={() => scrollToSection(item.id, () => setOpen(false))}
                 sx={{ py: "10px", px: "15px" }}
               >
-                {item.name}
+                {t(`appbar.menuItem.${item.languageId}`)}
               </MenuItem>
             ))}
 
@@ -231,14 +215,14 @@ export default function XAppBar({
         <Container maxWidth="lg">
           <Toolbar
             variant="regular"
-            sx={{
+            sx={(theme) => ({
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
               flexShrink: 0,
               borderRadius: "999px",
               bgcolor:
-                themeMode === "light"
+                theme.palette.mode === "light"
                   ? "rgba(255, 255, 255, 0.4)"
                   : "rgba(0, 0, 0, 0.4)",
               backdropFilter: "blur(24px)",
@@ -246,10 +230,10 @@ export default function XAppBar({
               border: "1px solid",
               borderColor: "divider",
               boxShadow:
-                themeMode === "light"
+                theme.palette.mode === "light"
                   ? `0 0 1px rgba(85, 166, 246, 0.1), 1px 1.5px 2px -1px rgba(85, 166, 246, 0.15), 4px 4px 12px -2.5px rgba(85, 166, 246, 0.15)`
                   : "0 0 1px rgba(2, 31, 59, 0.7), 1px 1.5px 2px -1px rgba(2, 31, 59, 0.65), 4px 4px 12px -2.5px rgba(2, 31, 59, 0.65)",
-            }}
+            })}
           >
             {renderLeftItems()}
 

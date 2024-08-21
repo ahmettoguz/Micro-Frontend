@@ -35,7 +35,7 @@ export const XLoadingButton: React.FC<XLoadingButtonProps> = ({
       onClick={onClick}
       loading={loading}
       disabled={loading}
-      sx={sx}
+      sx={{ ...sx, textTransform: "none" }}
       size={size}
       loadingIndicator={<CircularProgress color="inherit" size={"2em"} />}
     >

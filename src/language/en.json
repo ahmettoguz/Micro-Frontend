@@ -1,0 +1,42 @@
+{
+  "translation": {
+    "appbar": {
+      "tooltip": {
+        "themeModeDark": "dark mode",
+        "themeModeLight": "light mode",
+        "themeSchemaDefault": "default theme",
+        "themeSchemaCustom": "custom theme",
+        "languageTurkish": "Turkish",
+        "languageEnglish": "English"
+      },
+      "menuItem": {
+        "emailService": "Email Service",
+        "serviceTest": "Service Test"
+      }
+    },
+    "hero": {
+      "appDescription": "This project provides an interface for managing services with Docker and supports secure communication through TLS and HTTPS. Docker isolates services to enhance scalability and maintainability, while TLS ensures secure interactions between microservices and users. {{appIcon}}",
+      "discover": "Discover"
+    },
+    "emailService": {
+      "emailService": "Email Service",
+      "sendEmail": "Send Email",
+      "fillInDetails": "Fill in the details below to send your message.",
+      "emailReceiver": "Email Receiver",
+      "emailContent": "Email Content"
+    },
+    "test": {
+      "microServiceTest": "Micro Service Test",
+      "checkTheStatus": "Check the status and health of our services. Ensure everything is running smoothly.",
+      "backendHealthCheck": "Backend Health Check",
+      "serviceTest": "Service Test",
+      "serviceHealthCheck": "Service Health Check"
+    },
+    "footer": {
+      "developer": "Developed by Ahmet Oğuz Ergin"
+    },
+    "common": {
+      "send": "Send"
+    }
+  }
+}

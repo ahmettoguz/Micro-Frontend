@@ -1,0 +1,42 @@
+{
+  "translation": {
+    "appbar": {
+      "tooltip": {
+        "themeModeDark": "karanlık mod",
+        "themeModeLight": "aydınlık mod",
+        "themeSchemaDefault": "varsayılan tema",
+        "themeSchemaCustom": "özel tema",
+        "languageTurkish": "Türkçe",
+        "languageEnglish": "İngilizce"
+      },
+      "menuItem": {
+        "emailService": "Email Hizmeti",
+        "serviceTest": "Hizmet Testi"
+      }
+    },
+    "hero": {
+      "appDescription": "Bu proje, Docker ile hizmetleri yönetmek için bir arayüz sağlar ve TLS ve HTTPS üzerinden güvenli iletişimi destekler. Docker, hizmetleri izole ederek ölçeklenebilirlik ve bakım kolaylığı sağlar, TLS ise mikro hizmetler ve kullanıcılar arasındaki güvenli etkileşimleri garanti eder. {{appIcon}}",
+      "discover": "Keşfet"
+    },
+    "emailService": {
+      "emailService": "Email Hizmeti",
+      "sendEmail": "Email Gönder",
+      "fillInDetails": "E-posta göndermek için belirtilen alanları doldurun.",
+      "emailReceiver": "Email Alıcısı",
+      "emailContent": "Email İçeriği"
+    },
+    "test": {
+      "microServiceTest": "Mikro Hizmet Testi",
+      "checkTheStatus": "Çalışan servislerin durumunu kontrol edin. Servislerin sorunsuz bir şekilde çalıştığından emin olmalısınız.",
+      "backendHealthCheck": "Backend Durum Kontrolü",
+      "serviceTest": "Hizmet Testi",
+      "serviceHealthCheck": "Service Durum Kontrolü"
+    },
+    "footer": {
+      "developer": "Geliştiren Ahmet Oğuz Ergin"
+    },
+    "common": {
+      "send": "Gönder"
+    }
+  }
+}
