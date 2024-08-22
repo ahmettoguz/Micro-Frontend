@@ -5,18 +5,16 @@
         "themeModeDark": "karanlık mod",
         "themeModeLight": "aydınlık mod",
         "themeSchemaDefault": "varsayılan tema",
-        "themeSchemaCustom": "özel tema",
-        "languageTurkish": "Türkçe",
-        "languageEnglish": "İngilizce"
+        "themeSchemaCustom": "özel tema"
       },
       "menuItem": {
         "emailService": "Email Hizmeti",
         "serviceTest": "Hizmet Testi"
       },
       "snackbar": {
-        "themeMode": "Tema {{themeMode}} olarak değiştirildi.",
+        "themeMode": "Tema modu {{themeMode}} olarak değiştirildi.",
         "themeSchema": "Tema {{themeSchema}} olarak değiştirildi.",
-        "language": "Dil İngilizce olarak değiştirildi."
+        "language": "Language changed to Turkish."
       }
     },
     "hero": {
@@ -41,7 +39,13 @@
       "developer": "Geliştiren Ahmet Oğuz Ergin"
     },
     "common": {
-      "send": "Gönder"
+      "send": "Gönder",
+      "dark": "karanlık",
+      "light": "aydınlık",
+      "default": "varsayılan",
+      "custom": "özel",
+      "turkish": "Türkçe",
+      "english": "İngilizce"
     }
   }
 }

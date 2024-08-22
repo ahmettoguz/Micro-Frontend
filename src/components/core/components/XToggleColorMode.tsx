@@ -18,12 +18,13 @@ export default function XToggleColorMode() {
 
   const handleToggle = () => {
     dispatch(toggleThemeMode());
+
     showSnackbar(
       t("appbar.snackbar.themeMode", {
         themeMode:
           themeMode === ThemeModeEnum.Dark
-            ? ThemeModeEnum.Light
-            : ThemeModeEnum.Dark,
+            ? t("common.light")
+            : t("common.dark"),
       })
     );
   };

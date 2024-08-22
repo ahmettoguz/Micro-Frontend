@@ -10,8 +10,6 @@ const languageSlice = createSlice({
   initialState: storedLanguage,
   reducers: {
     setLanguage: (state, action: PayloadAction<LanguageEnum>) => {
-      console.log("aciton paylodd");
-      console.log(action.payload);
       localStorage.setItem("language", action.payload);
       changeLanguage(action.payload);
       return action.payload;
