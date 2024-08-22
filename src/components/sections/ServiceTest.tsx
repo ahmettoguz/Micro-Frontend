@@ -1,10 +1,10 @@
 import { Box, Container, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import axios from "axios";
+import { t } from "i18next";
 import { useState } from "react";
 import { useSnackbarUtils } from "../../utils/useSnackbarUtils";
 import { XLoadingButton } from "../core/components/XLoadingButton";
-import { t } from "i18next";
 
 export const ServiceTest = () => {
   const theme = useTheme();
@@ -17,14 +17,15 @@ export const ServiceTest = () => {
     setLoadingBtnBackendHC(true);
 
     try {
-      // Dummy request with axios
-      const response = await axios.post(
-        "https://jsonplaceholder.typicode.com/posts"
+      const response = await axios.get(
+        "http://localhost:8081/api/health-check/info"
       );
+      console.log("Response data:");
+      console.info(response.data.data);
 
-      showSnackbar("dummy", "success");
+      showSnackbar(t("test.snackbar.serviceUp"), "success");
     } catch (error) {
-      showSnackbar("dummy", "error");
+      showSnackbar(t("test.snackbar.serviceDown"), "error");
     } finally {
       setLoadingBtnBackendHC(false);
     }
@@ -34,14 +35,15 @@ export const ServiceTest = () => {
     sestLoadingBtnServiceHC(true);
 
     try {
-      // Dummy request with axios
-      const response = await axios.post(
-        "https://jsonplaceholder.typicode.com/posts"
+      const response = await axios.get(
+        "http://localhost:8082/email/health-check/info"
       );
+      console.log("Response data:");
+      console.info(response.data.data);
 
-      showSnackbar("dummy", "success");
+      showSnackbar(t("test.snackbar.serviceUp"), "success");
     } catch (error) {
-      showSnackbar("dummy", "error");
+      showSnackbar(t("test.snackbar.serviceDown"), "error");
     } finally {
       sestLoadingBtnServiceHC(false);
     }
@@ -51,14 +53,19 @@ export const ServiceTest = () => {
     setLoadingBtnService(true);
 
     try {
-      // Dummy request with axios
       const response = await axios.post(
-        "https://jsonplaceholder.typicode.com/posts"
+        "http://localhost:8082/email/service/send",
+        {
+          subject: "Support Mail",
+          recipients: ["dummyuser@gmail.com", "exampleuser@hotmail.com"],
+          body: "Hii! This is support mail. Do not reply that.",
+        }
       );
+      console.log("Response:", response.data);
 
-      showSnackbar("dummy", "success");
+      showSnackbar(t("test.snackbar.testSuccess"), "success");
     } catch (error) {
-      showSnackbar("dummy", "error");
+      showSnackbar(t("test.snackbar.testError"), "error");
     } finally {
       setLoadingBtnService(false);
     }

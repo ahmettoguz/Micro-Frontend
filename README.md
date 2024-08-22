@@ -55,6 +55,7 @@ This project provides an interface for managing services with Docker and support
 
 <h2 id="features">🔥 Features</h2>
 
++ **External Communication:** Manages interaction between backend and email service.
 + **Global State Management:** Implemented using Redux for consistent state handling across the application.
 + **Persistent Settings:** Language, theme mode, and theme schema are remembered using localStorage.
 + **Internationalization:** Language support with i18n for a multilingual user experience.

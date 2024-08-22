@@ -40,7 +40,13 @@
       "checkTheStatus": "Check the status and health of our services. Ensure everything is running smoothly.",
       "backendHealthCheck": "Backend Health Check",
       "serviceTest": "Service Test",
-      "serviceHealthCheck": "Service Health Check"
+      "serviceHealthCheck": "Service Health Check",
+      "snackbar": {
+        "serviceUp": "Service is up.",
+        "serviceDown": "Service is down!",
+        "testSuccess": "Service test successful.",
+        "testError": "Service test error!"
+      }
     },
     "footer": {
       "developer": "Developed by Ahmet Oğuz Ergin"

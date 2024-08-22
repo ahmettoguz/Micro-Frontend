@@ -40,7 +40,13 @@
       "checkTheStatus": "Çalışan servislerin durumunu kontrol edin. Servislerin sorunsuz bir şekilde çalıştığından emin olmalısınız.",
       "backendHealthCheck": "Backend Durum Kontrolü",
       "serviceTest": "Hizmet Testi",
-      "serviceHealthCheck": "Service Durum Kontrolü"
+      "serviceHealthCheck": "Servis Durum Kontrolü",
+      "snackbar": {
+        "serviceUp": "Hizmet aktif durumda.",
+        "serviceDown": "Hizmet yanıt vermiyor!",
+        "testSuccess": "Servis testi başarılı.",
+        "testError": "Servis testi başarısız!"
+      }
     },
     "footer": {
       "developer": "Geliştiren Ahmet Oğuz Ergin"
