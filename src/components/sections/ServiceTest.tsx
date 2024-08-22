@@ -1,10 +1,10 @@
 import { Box, Container, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import axios from "axios";
+import { t } from "i18next";
 import { useState } from "react";
 import { useSnackbarUtils } from "../../utils/useSnackbarUtils";
 import { XLoadingButton } from "../core/components/XLoadingButton";
-import { t } from "i18next";
 
 export const ServiceTest = () => {
   const theme = useTheme();
@@ -18,13 +18,15 @@ export const ServiceTest = () => {
 
     try {
       // Dummy request with axios
-      const response = await axios.post(
-        "https://jsonplaceholder.typicode.com/posts"
+      const response = await axios.get(
+        "http://localhost:8081/api/health-check/info"
       );
+      console.log("Response data:");
+      console.info(response.data.data);
 
-      showSnackbar("dummy", "success");
+      showSnackbar(t("test.snackbar.serviceUp"), "success");
     } catch (error) {
-      showSnackbar("dummy", "error");
+      showSnackbar(t("test.snackbar.serviceDown"), "error");
     } finally {
       setLoadingBtnBackendHC(false);
     }
