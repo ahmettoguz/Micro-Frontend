@@ -36,10 +36,7 @@ export default function App() {
   const defaultTheme = createTheme({ palette: { mode: themeMode } });
 
   return (
-    <SnackbarProvider
-      maxSnack={5}
-      anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
-    >
+    <SnackbarProvider maxSnack={5}>
       <ThemeProvider
         theme={
           themeSchema === ThemeSchemaEnum.Custom ? customTheme : defaultTheme

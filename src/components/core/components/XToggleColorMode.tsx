@@ -9,13 +9,23 @@ import { useDispatch, useSelector } from "react-redux";
 import { ThemeModeEnum } from "../../../enum/ThemeEnum";
 import { toggleThemeMode } from "../../../store/slice/themeModeSlice";
 import { RootState } from "../../../store/store";
+import { useSnackbarUtils } from "../../../utils/useSnackbarUtils";
 
 export default function XToggleColorMode() {
+  const { showSnackbar } = useSnackbarUtils();
   const dispatch = useDispatch();
   const themeMode = useSelector((state: RootState) => state.themeMode);
 
   const handleToggle = () => {
     dispatch(toggleThemeMode());
+    showSnackbar(
+      t("appbar.snackbar.themeMode", {
+        themeMode:
+          themeMode === ThemeModeEnum.Dark
+            ? ThemeModeEnum.Light
+            : ThemeModeEnum.Dark,
+      })
+    );
   };
 
   return (

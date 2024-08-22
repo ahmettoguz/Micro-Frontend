@@ -12,6 +12,11 @@
       "menuItem": {
         "emailService": "Email Hizmeti",
         "serviceTest": "Hizmet Testi"
+      },
+      "snackbar": {
+        "themeMode": "Tema {{themeMode}} olarak değiştirildi.",
+        "themeSchema": "Tema {{themeSchema}} olarak değiştirildi.",
+        "language": "Dil İngilizce olarak değiştirildi."
       }
     },
     "hero": {
