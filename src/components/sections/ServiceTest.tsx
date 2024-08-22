@@ -17,7 +17,6 @@ export const ServiceTest = () => {
     setLoadingBtnBackendHC(true);
 
     try {
-      // Dummy request with axios
       const response = await axios.get(
         "http://localhost:8081/api/health-check/info"
       );
@@ -36,14 +35,15 @@ export const ServiceTest = () => {
     sestLoadingBtnServiceHC(true);
 
     try {
-      // Dummy request with axios
-      const response = await axios.post(
-        "https://jsonplaceholder.typicode.com/posts"
+      const response = await axios.get(
+        "http://localhost:8082/email/health-check/info"
       );
+      console.log("Response data:");
+      console.info(response.data.data);
 
-      showSnackbar("dummy", "success");
+      showSnackbar(t("test.snackbar.serviceUp"), "success");
     } catch (error) {
-      showSnackbar("dummy", "error");
+      showSnackbar(t("test.snackbar.serviceDown"), "error");
     } finally {
       sestLoadingBtnServiceHC(false);
     }
@@ -53,14 +53,19 @@ export const ServiceTest = () => {
     setLoadingBtnService(true);
 
     try {
-      // Dummy request with axios
       const response = await axios.post(
-        "https://jsonplaceholder.typicode.com/posts"
+        "http://localhost:8082/email/service/send",
+        {
+          subject: "Support Mail",
+          recipients: ["dummyuser@gmail.com", "exampleuser@hotmail.com"],
+          body: "Hii! This is support mail. Do not reply that.",
+        }
       );
+      console.log("Response:", response.data);
 
-      showSnackbar("dummy", "success");
+      showSnackbar(t("test.snackbar.testSuccess"), "success");
     } catch (error) {
-      showSnackbar("dummy", "error");
+      showSnackbar(t("test.snackbar.testError"), "error");
     } finally {
       setLoadingBtnService(false);
     }
