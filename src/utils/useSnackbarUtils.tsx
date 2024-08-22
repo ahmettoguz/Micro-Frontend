@@ -15,7 +15,7 @@ export const useSnackbarUtils = () => {
   const showSnackbar = (
     message,
     variant: VariantType = "default",
-    autoHideDuration = 2000
+    autoHideDuration = 3000
   ) => {
     enqueueSnackbar(message, {
       variant,

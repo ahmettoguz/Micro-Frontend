@@ -26,7 +26,14 @@
       "sendEmail": "Email Gönder",
       "fillInDetails": "E-posta göndermek için belirtilen alanları doldurun.",
       "emailReceiver": "Email Alıcısı",
-      "emailContent": "Email İçeriği"
+      "emailContent": "Email İçeriği",
+      "snackbar": {
+        "sentSuccess": "Email başarılı bir şekilde gönderildi!",
+        "sentError": "Email gönderilemedi!",
+        "addUnique": "Özgün bir email alıcısı girin.",
+        "atLeastOneReceiver": "En az 1 email alıcısı girilmeli!",
+        "contentRequired": "İçerik girmek zorunludur!"
+      }
     },
     "test": {
       "microServiceTest": "Mikro Hizmet Testi",
@@ -46,6 +53,9 @@
       "custom": "özel",
       "turkish": "Türkçe",
       "english": "İngilizce"
+    },
+    "input": {
+      "reqired": "Zorunlu alanları doldurun!"
     }
   }
 }
