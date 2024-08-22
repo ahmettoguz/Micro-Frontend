@@ -55,14 +55,30 @@ This project provides an interface for managing services with Docker and support
 
 <h2 id="features">🔥 Features</h2>
 
-+ The application has been containerized using Docker.
-+ Integration with the backend is complete.
++ **Global State Management:** Implemented using Redux for consistent state handling across the application.
++ **Persistent Settings:** Language, theme mode, and theme schema are remembered using localStorage.
++ **Internationalization:** Language support with i18n for a multilingual user experience.
++ **Custom Scrollbar Design:** Unique scrollbar styling to match the application's aesthetic.
++ **Floating Action Button:** A "Go to Top" button for improved navigation.
++ **Multi-Message Snackbar:** Support for displaying multiple snackbars using notistack.
++ **Professional UI/UX:** Modern user interface and experience.
++ **Input Validation:** Enhanced validation support for user inputs.
++ **Dark/Light Theme Mode:** Toggle between dark and light modes.
++ **Theme Schema Customization:** Toggle between default and custom theme schema.
++ **Custom Theme:** Added support for custom themes.
++ **Responsive Design:** Optimized for different screen sizes and devices.
++ **Material-UI Integration:** Extensive use of Material-UI components.
++ **Environment Variables:** Support for environment variables to manage configurations.
++ **Docker Containerization:** The application has been containerized using Docker.
++ **Backend Integration:** Integration with the backend is complete.
 
 <br/>
 
 <h2 id="releases">🚢 Releases</h2> 
 
 &nbsp; [![.](https://img.shields.io/badge/1.0.0-233838?style=flat&label=release&labelColor=470137&color=077521)](https://github.com/ahmettoguz/Micro-Frontend/tree/release/1.0.0)
+
+&nbsp; [![.](https://img.shields.io/badge/2.0.0-233838?style=flat&label=release&labelColor=470137&color=077521)](https://github.com/ahmettoguz/Micro-Frontend/tree/release/2.0.0)
 
 <br/>
 
