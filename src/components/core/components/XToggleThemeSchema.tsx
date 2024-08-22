@@ -10,13 +10,24 @@ import { ThemeSchemaEnum } from "../../../enum/ThemeEnum";
 import { toggleThemeSchema } from "../../../store/slice/themeSchemaSlice";
 import { RootState } from "../../../store/store";
 import { isThemeChangeEnabled } from "../../../utils/envVars";
+import { useSnackbarUtils } from "../../../utils/useSnackbarUtils";
 
 export default function XToggleThemeSchema() {
+  const { showSnackbar } = useSnackbarUtils();
   const dispatch = useDispatch();
   const themeSchema = useSelector((state: RootState) => state.themeSchema);
 
   const handleToggle = () => {
     dispatch(toggleThemeSchema());
+
+    showSnackbar(
+      t("appbar.snackbar.themeSchema", {
+        themeSchema:
+          themeSchema === ThemeSchemaEnum.Custom
+            ? t("common.default")
+            : t("common.custom"),
+      })
+    );
   };
   return (
     <>

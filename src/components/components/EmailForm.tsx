@@ -35,7 +35,7 @@ export default function EmailForm() {
       setEmailReceiver("");
       setReceiversError(false);
     } else {
-      showSnackbar("Please add a unique receiver.", "error");
+      showSnackbar(t("emailService.snackbar.addUnique"), "error");
     }
   };
 
@@ -65,7 +65,7 @@ export default function EmailForm() {
     }
 
     if (hasError) {
-      showSnackbar("Fill required fields!", "error");
+      showSnackbar(t("input.reqired"), "error");
       return;
     }
 
@@ -81,9 +81,9 @@ export default function EmailForm() {
         }
       );
 
-      showSnackbar("Email sent successfully!", "success");
+      showSnackbar(t("emailService.snackbar.sentSuccess"), "success");
     } catch (error) {
-      showSnackbar("Email could not be sent.", "error");
+      showSnackbar(t("emailService.snackbar.sentError"), "error");
     } finally {
       setLoading(false);
     }
@@ -145,7 +145,9 @@ export default function EmailForm() {
               variant="outlined"
               error={receiversError}
               helperText={
-                receiversError ? "At least 1 receiver is required!" : ""
+                receiversError
+                  ? t("emailService.snackbar.atLeastOneReceiver", "error")
+                  : ""
               }
             />
             {/* add receiver button */}
@@ -197,7 +199,11 @@ export default function EmailForm() {
             variant="outlined"
             required
             error={contentError}
-            helperText={contentError ? "Content is required!" : ""}
+            helperText={
+              contentError
+                ? t("emailService.snackbar.contentRequired", "error")
+                : ""
+            }
           />
 
           {/* send button */}

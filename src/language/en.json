@@ -5,13 +5,16 @@
         "themeModeDark": "dark mode",
         "themeModeLight": "light mode",
         "themeSchemaDefault": "default theme",
-        "themeSchemaCustom": "custom theme",
-        "languageTurkish": "Turkish",
-        "languageEnglish": "English"
+        "themeSchemaCustom": "custom theme"
       },
       "menuItem": {
         "emailService": "Email Service",
         "serviceTest": "Service Test"
+      },
+      "snackbar": {
+        "themeMode": "Mode changed to {{themeMode}}.",
+        "themeSchema": "Theme changed to {{themeSchema}}.",
+        "language": "Dil İngilizce olarak değiştirildi."
       }
     },
     "hero": {
@@ -23,7 +26,14 @@
       "sendEmail": "Send Email",
       "fillInDetails": "Fill in the details below to send your message.",
       "emailReceiver": "Email Receiver",
-      "emailContent": "Email Content"
+      "emailContent": "Email Content",
+      "snackbar": {
+        "sentSuccess": "Email sent successfully!",
+        "sentError": "Email cannot sent!",
+        "addUnique": "Please add a unique receiver.",
+        "atLeastOneReceiver": "At least 1 receiver is required!",
+        "contentRequired": "Content is required!"
+      }
     },
     "test": {
       "microServiceTest": "Micro Service Test",
@@ -36,7 +46,16 @@
       "developer": "Developed by Ahmet Oğuz Ergin"
     },
     "common": {
-      "send": "Send"
+      "send": "Send",
+      "dark": "dark",
+      "light": "light",
+      "default": "default",
+      "custom": "custom",
+      "turkish": "Turkish",
+      "english": "English"
+    },
+    "input": {
+      "reqired": "Fill required fields!"
     }
   }
 }

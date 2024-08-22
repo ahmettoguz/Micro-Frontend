@@ -5,13 +5,16 @@
         "themeModeDark": "karanlık mod",
         "themeModeLight": "aydınlık mod",
         "themeSchemaDefault": "varsayılan tema",
-        "themeSchemaCustom": "özel tema",
-        "languageTurkish": "Türkçe",
-        "languageEnglish": "İngilizce"
+        "themeSchemaCustom": "özel tema"
       },
       "menuItem": {
         "emailService": "Email Hizmeti",
         "serviceTest": "Hizmet Testi"
+      },
+      "snackbar": {
+        "themeMode": "Tema modu {{themeMode}} olarak değiştirildi.",
+        "themeSchema": "Tema {{themeSchema}} olarak değiştirildi.",
+        "language": "Language changed to Turkish."
       }
     },
     "hero": {
@@ -23,7 +26,14 @@
       "sendEmail": "Email Gönder",
       "fillInDetails": "E-posta göndermek için belirtilen alanları doldurun.",
       "emailReceiver": "Email Alıcısı",
-      "emailContent": "Email İçeriği"
+      "emailContent": "Email İçeriği",
+      "snackbar": {
+        "sentSuccess": "Email başarılı bir şekilde gönderildi!",
+        "sentError": "Email gönderilemedi!",
+        "addUnique": "Özgün bir email alıcısı girin.",
+        "atLeastOneReceiver": "En az 1 email alıcısı girilmeli!",
+        "contentRequired": "İçerik girmek zorunludur!"
+      }
     },
     "test": {
       "microServiceTest": "Mikro Hizmet Testi",
@@ -36,7 +46,16 @@
       "developer": "Geliştiren Ahmet Oğuz Ergin"
     },
     "common": {
-      "send": "Gönder"
+      "send": "Gönder",
+      "dark": "karanlık",
+      "light": "aydınlık",
+      "default": "varsayılan",
+      "custom": "özel",
+      "turkish": "Türkçe",
+      "english": "İngilizce"
+    },
+    "input": {
+      "reqired": "Zorunlu alanları doldurun!"
     }
   }
 }

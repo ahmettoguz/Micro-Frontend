@@ -7,8 +7,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { LanguageEnum } from "../../../enum/LanguageEnum";
 import { setLanguage } from "../../../store/slice/languageSlice";
 import { RootState } from "../../../store/store";
+import { useSnackbarUtils } from "../../../utils/useSnackbarUtils";
 
 export default function XToggleLanguage() {
+  const { showSnackbar } = useSnackbarUtils();
   const dispatch = useDispatch();
   const language = useSelector((state: RootState) => state.language);
   const { t } = useTranslation();
@@ -17,15 +19,22 @@ export default function XToggleLanguage() {
     const newLanguage =
       language === LanguageEnum.Tr ? LanguageEnum.En : LanguageEnum.Tr;
     dispatch(setLanguage(newLanguage));
+
+    showSnackbar(
+      t("appbar.snackbar.language", {
+        language:
+          language === LanguageEnum.Tr
+            ? t("common.english")
+            : t("common.turkish"),
+      })
+    );
   };
 
   return (
     <Tooltip
       placement="bottom"
       title={t(
-        language === LanguageEnum.En
-          ? "appbar.tooltip.languageTurkish"
-          : "appbar.tooltip.languageEnglish"
+        language === LanguageEnum.En ? "common.turkish" : "common.english"
       )}
     >
       <Box sx={{ maxWidth: "32px" }}>
