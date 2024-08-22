@@ -10,10 +10,10 @@ import {
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import axios from "axios";
+import { t } from "i18next";
 import { useState } from "react";
 import { useSnackbarUtils } from "../../utils/useSnackbarUtils";
 import { XLoadingButton } from "../core/components/XLoadingButton";
-import { t } from "i18next";
 
 export default function EmailForm() {
   const { showSnackbar } = useSnackbarUtils();
@@ -72,14 +72,15 @@ export default function EmailForm() {
     setLoading(true);
 
     try {
-      // Dummy request with axios
       const response = await axios.post(
-        "https://jsonplaceholder.typicode.com/posts",
+        "http://localhost:8082/email/service/send",
         {
-          emailReceivers,
-          content,
+          subject: "Support Mail",
+          recipients: emailReceivers,
+          body: content,
         }
       );
+      console.log("Response:", response.data);
 
       showSnackbar(t("emailService.snackbar.sentSuccess"), "success");
     } catch (error) {
