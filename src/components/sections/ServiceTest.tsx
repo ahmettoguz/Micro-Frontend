@@ -18,7 +18,7 @@ export const ServiceTest = () => {
 
     try {
       const response = await axios.get(
-        "http://localhost:8081/api/health-check/info"
+        "https://backend.localhost/api/health-check/info"
       );
       console.log("Response data:");
       console.info(response.data.data);
@@ -36,7 +36,7 @@ export const ServiceTest = () => {
 
     try {
       const response = await axios.get(
-        "http://localhost:8082/email/health-check/info"
+        "https://email.localhost/email/health-check/info"
       );
       console.log("Response data:");
       console.info(response.data.data);
@@ -54,7 +54,7 @@ export const ServiceTest = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8082/email/service/send",
+        "https://email.localhost/email/service/send",
         {
           subject: "Support Mail",
           recipients: ["dummyuser@gmail.com", "exampleuser@hotmail.com"],
