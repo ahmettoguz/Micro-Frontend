@@ -14,7 +14,7 @@
 
 <h2 id="features">🔥 Features</h2>
 
-+ **Traefik Security:** Centeralized TLS/HTTPS support for all services with selfsigned certificate.
++ **TLS/HTTPS:** Centeralized TLS/HTTPS support for all services with selfsigned certificate.
 + **Traefik Integration:** Integration with Traefik for efficient load balancing and port forwarding within the application's microservices architecture.
 + **External Communication:** Manages communication between backend and email service.
 + **Global State Management:** Redux implementation for consistent state handling across the application.
