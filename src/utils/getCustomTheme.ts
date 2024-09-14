@@ -324,39 +324,40 @@ export default function getCustomTheme(mode: PaletteMode): any {
                   boxShadow: `0 0 0 1px  ${alpha(brand[300], 0.5)}`,
                 },
               }),
-            ...(ownerState.variant === "outlined" && {
-              backgroundColor: alpha(brand[300], 0.1),
-              borderColor: brand[300],
-              color: brand[500],
-              "&:hover": {
-                backgroundColor: alpha(brand[200], 0.3),
-                borderColor: brand[300],
-              },
-            }),
-            ...(ownerState.variant === "text" && {
-              color: brand[500],
-              "&:hover": {
-                backgroundColor: alpha(brand[300], 0.3),
-                borderColor: brand[200],
-              },
-            }),
+            // ...(ownerState.variant === "outlined" && {
+            //   backgroundColor: alpha(brand[300], 0.1),
+            //   borderColor: brand[300],
+            //   color: brand[500],
+            //   "&:hover": {
+            //     backgroundColor: alpha(brand[200], 0.3),
+            //     borderColor: brand[300],
+            //   },
+            // }),
+            // ...(ownerState.variant === "text" && {
+            //   color: brand[500],
+            //   "&:hover": {
+            //     backgroundColor: alpha(brand[300], 0.3),
+            //     borderColor: brand[200],
+            //   },
+            // }),
             ...(theme.palette.mode === "dark" && {
-              ...(ownerState.variant === "outlined" && {
-                backgroundColor: alpha(brand[600], 0.1),
-                borderColor: brand[700],
-                color: brand[300],
-                "&:hover": {
-                  backgroundColor: alpha(brand[600], 0.3),
+              ...(ownerState.variant === "outlined" &&
+                ownerState.color === "primary" && {
+                  backgroundColor: alpha(brand[600], 0.1),
                   borderColor: brand[700],
-                },
-              }),
-              ...(ownerState.variant === "text" && {
-                color: brand[300],
-                "&:hover": {
-                  backgroundColor: alpha(brand[600], 0.3),
-                  borderColor: brand[700],
-                },
-              }),
+                  color: brand[300],
+                  "&:hover": {
+                    backgroundColor: alpha(brand[600], 0.3),
+                    borderColor: brand[700],
+                  },
+                }),
+              // ...(ownerState.variant === "text" && {
+              //   color: brand[300],
+              //   "&:hover": {
+              //     backgroundColor: alpha(brand[600], 0.3),
+              //     borderColor: brand[700],
+              //   },
+              // }),
             }),
           }),
         },
