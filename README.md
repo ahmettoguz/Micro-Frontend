@@ -1,4 +1,4 @@
-<h1 id="top" align="center">Micro <br/> Frontend Service</h1> 
+<h1 id="top" align="center">SendSphere <br/> Micro Frontend Service</h1> 
 
 <br>
 
@@ -39,11 +39,17 @@ This project provides an interface for managing services with Docker and support
 
 &nbsp; [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
 
+&nbsp; [![Redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)](https://redux.js.org/)
+
+&nbsp; [![MUI](https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white)](https://mui.com/material-ui/)
+
 &nbsp; [![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
-&nbsp; [![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+&nbsp; [![Axios](https://img.shields.io/badge/axios-671ddf?&style=for-the-badge&logo=axios&logoColor=white)](https://axios-http.com/)
 
-&nbsp; [![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)]([https://vitejs.dev/](https://eslint.org/))
+&nbsp; [![Vite](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)](https://vitejs.dev/)
+
+&nbsp; [![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)](https://eslint.org/)
 
 &nbsp; ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 
@@ -55,9 +61,11 @@ This project provides an interface for managing services with Docker and support
 
 <h2 id="features">🔥 Features</h2>
 
-+ **External Communication:** Manages interaction between backend and email service.
-+ **Global State Management:** Implemented using Redux for consistent state handling across the application.
-+ **Persistent Settings:** Language, theme mode, and theme schema are remembered using localStorage.
++ **TLS/HTTPS:** Centeralized TLS/HTTPS support for all services with selfsigned certificate.
++ **Traefik Integration:** Integration with Traefik for efficient load balancing and port forwarding within the application's microservices architecture.
++ **External Communication:** Manages communication between backend and email service.
++ **Global State Management:** Redux implementation for consistent state handling across the application.
++ **Persistent Settings:** Language, theme mode, and theme schema are stored in localStorage.
 + **Internationalization:** Language support with i18n for a multilingual user experience.
 + **Custom Scrollbar Design:** Unique scrollbar styling to match the application's aesthetic.
 + **Floating Action Button:** A "Go to Top" button for improved navigation.
@@ -71,11 +79,13 @@ This project provides an interface for managing services with Docker and support
 + **Material-UI Integration:** Extensive use of Material-UI components.
 + **Environment Variables:** Support for environment variables to manage configurations.
 + **Docker Containerization:** The application has been containerized using Docker.
-+ **Backend Integration:** Integration with the backend is complete.
++ **Backend Integration:** Integration with the backend service.
 
 <br/>
 
 <h2 id="releases">🚢 Releases</h2> 
+
+&nbsp; [![.](https://img.shields.io/badge/2.2.0-233838?style=flat&label=release&labelColor=470137&color=077521)](https://github.com/ahmettoguz/Micro-Frontend/tree/release/2.2.0)
 
 &nbsp; [![.](https://img.shields.io/badge/2.1.0-233838?style=flat&label=release&labelColor=470137&color=077521)](https://github.com/ahmettoguz/Micro-Frontend/tree/release/2.1.0)
 
