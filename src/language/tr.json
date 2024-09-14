@@ -53,6 +53,7 @@
     },
     "common": {
       "send": "Gönder",
+      "close": "Kapat",
       "dark": "karanlık",
       "light": "aydınlık",
       "default": "varsayılan",
