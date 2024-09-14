@@ -86,6 +86,8 @@ This project provides an interface for managing services with Docker and support
 
 <h2 id="releases">🚢 Releases</h2> 
 
+&nbsp; [![.](https://img.shields.io/badge/2.2.1-233838?style=flat&label=release&labelColor=470137&color=077521)](https://github.com/ahmettoguz/Micro-Frontend/tree/release/2.2.1)
+
 &nbsp; [![.](https://img.shields.io/badge/2.2.0-233838?style=flat&label=release&labelColor=470137&color=077521)](https://github.com/ahmettoguz/Micro-Frontend/tree/release/2.2.0)
 
 &nbsp; [![.](https://img.shields.io/badge/2.1.0-233838?style=flat&label=release&labelColor=470137&color=077521)](https://github.com/ahmettoguz/Micro-Frontend/tree/release/2.1.0)
