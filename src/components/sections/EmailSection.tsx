@@ -33,7 +33,7 @@ export const EmailSection = () => {
               : `radial-gradient(circle at 30% 30%, black 40%, ${theme.palette.primary.dark})`,
           transition: "transform 0.3s, box-shadow 0.3s",
           "&:hover": {
-            transform: "scale(1.01)",
+            transform: "scale(1.03)",
             boxShadow: 8,
           },
         }}

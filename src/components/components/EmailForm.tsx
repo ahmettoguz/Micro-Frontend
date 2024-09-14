@@ -17,9 +17,7 @@ import { XLoadingButton } from "../core/components/XLoadingButton";
 
 export default function EmailForm() {
   const { showSnackbar } = useSnackbarUtils();
-  const [emailReceivers, setEmailReceivers] = useState([
-    "ittemplatee@gmail.com",
-  ]);
+  const [emailReceivers, setEmailReceivers] = useState([]);
   const [emailReceiver, setEmailReceiver] = useState("");
   const [content, setContent] = useState("");
   const [loading, setLoading] = useState(false);
@@ -27,10 +25,6 @@ export default function EmailForm() {
   const [receiversError, setReceiversError] = useState(false);
 
   const theme = useTheme();
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-  };
 
   const handleAddReceiver = () => {
     if (
@@ -134,7 +128,6 @@ export default function EmailForm() {
         {/* form */}
         <Box
           component="form"
-          onSubmit={handleSubmit}
           sx={{
             display: "flex",
             flexDirection: "column",
@@ -178,29 +171,18 @@ export default function EmailForm() {
           </Box>
 
           {/* receivers chips */}
-
           {emailReceivers.length !== 0 && (
             <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
-              {emailReceivers.map((receiver, index) =>
-                receiver === "ittemplatee@gmail.com" ? (
-                  <Chip
-                    key={index}
-                    label={receiver}
-                    sx={{
-                      mb: 1,
-                    }}
-                  />
-                ) : (
-                  <Chip
-                    key={index}
-                    label={receiver}
-                    onDelete={() => handleDeleteReceiver(receiver)}
-                    sx={{
-                      mb: 1,
-                    }}
-                  />
-                )
-              )}
+              {emailReceivers.map((receiver, index) => (
+                <Chip
+                  key={index}
+                  label={receiver}
+                  onDelete={() => handleDeleteReceiver(receiver)}
+                  sx={{
+                    mb: 1,
+                  }}
+                />
+              ))}
             </Box>
           )}
 
