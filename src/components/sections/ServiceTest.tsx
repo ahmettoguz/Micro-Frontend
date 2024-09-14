@@ -5,7 +5,6 @@ import { t } from "i18next";
 import { useState } from "react";
 import { useSnackbarUtils } from "../../utils/useSnackbarUtils";
 import { XLoadingButton } from "../core/components/XLoadingButton";
-import { backendUrl, emailUrl } from "../../utils/envVars";
 
 export const ServiceTest = () => {
   const theme = useTheme();
@@ -18,7 +17,9 @@ export const ServiceTest = () => {
     setLoadingBtnBackendHC(true);
 
     try {
-      const response = await axios.get(`${backendUrl}/health-check/info`);
+      const response = await axios.get(
+        "https://backend.localhost/api/health-check/info"
+      );
       console.log("Response data:");
       console.info(response.data.data);
 
@@ -34,7 +35,9 @@ export const ServiceTest = () => {
     sestLoadingBtnServiceHC(true);
 
     try {
-      const response = await axios.get(`${emailUrl}/health-check/info`);
+      const response = await axios.get(
+        "https://email.localhost/email/health-check/info"
+      );
       console.log("Response data:");
       console.info(response.data.data);
 
@@ -50,11 +53,14 @@ export const ServiceTest = () => {
     setLoadingBtnService(true);
 
     try {
-      const response = await axios.post(`${emailUrl}/service/send`, {
-        subject: "Support Mail",
-        recipients: ["dummyuser@gmail.com", "ittemplatee@gmail.com"],
-        body: "Hii! This is support mail. Do not reply that.",
-      });
+      const response = await axios.post(
+        "https://email.localhost/email/service/send",
+        {
+          subject: "Support Mail",
+          recipients: ["dummyuser@gmail.com", "exampleuser@hotmail.com"],
+          body: "Hii! This is support mail. Do not reply that.",
+        }
+      );
       console.log("Response:", response.data);
 
       showSnackbar(t("test.snackbar.testSuccess"), "success");
