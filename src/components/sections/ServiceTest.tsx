@@ -52,7 +52,7 @@ export const ServiceTest = () => {
     try {
       const response = await axios.post(`${emailUrl}/service/send`, {
         subject: "Support Mail",
-        recipients: ["dummyuser@gmail.com", "exampleuser@hotmail.com"],
+        recipients: ["dummyuser@gmail.com", "ittemplatee@gmail.com"],
         body: "Hii! This is support mail. Do not reply that.",
       });
       console.log("Response:", response.data);
