@@ -1,11 +1,13 @@
+import InfoIcon from "@mui/icons-material/Info";
 import { Box, Container, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import axios from "axios";
 import { t } from "i18next";
 import { useState } from "react";
+import { backendUrl, emailUrl } from "../../utils/envVars";
 import { useSnackbarUtils } from "../../utils/useSnackbarUtils";
 import { XLoadingButton } from "../core/components/XLoadingButton";
-import { backendUrl, emailUrl } from "../../utils/envVars";
+import XModal from "../core/components/XModal";
 
 export const ServiceTest = () => {
   const theme = useTheme();
@@ -13,6 +15,7 @@ export const ServiceTest = () => {
   const [loadingBtnBackendHC, setLoadingBtnBackendHC] = useState(false);
   const [loadingBtnServiceHC, sestLoadingBtnServiceHC] = useState(false);
   const [loadingBtnService, setLoadingBtnService] = useState(false);
+  const [isOpenModal, setIsOpenModal] = useState(false);
 
   const handleBackendHealthCheck = async () => {
     setLoadingBtnBackendHC(true);
@@ -65,6 +68,14 @@ export const ServiceTest = () => {
     }
   };
 
+  const openModal = () => {
+    setIsOpenModal(true);
+  };
+
+  const closeModal = () => {
+    setIsOpenModal(false);
+  };
+
   return (
     <Container
       maxWidth="md"
@@ -105,9 +116,18 @@ export const ServiceTest = () => {
             fontWeight: 600,
             color: "text.primary",
             fontSize: { xs: "1.5rem", md: "2rem" },
+            display: "inline-flex", // This keeps the Typography and Icon on the same line
+            alignItems: "center", // Vertically centers the icon with the text
           }}
         >
           {t("test.microServiceTest")}
+          <InfoIcon
+            onClick={openModal}
+            sx={{
+              ml: 2,
+              cursor: "pointer",
+            }}
+          />
         </Typography>
         <Typography
           variant="body1"
@@ -151,6 +171,18 @@ export const ServiceTest = () => {
           </XLoadingButton>
         </Box>
       </Box>
+
+      <XModal
+        title={"Test Modal Title"}
+        isOpen={isOpenModal}
+        isEscapable={true}
+        escapeCallback={closeModal}
+        hasSelection={false}
+      >
+        <Typography gutterBottom>
+          Use test to ensure services working as desired.
+        </Typography>
+      </XModal>
     </Container>
   );
 };
