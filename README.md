@@ -61,6 +61,7 @@ This project provides an interface for managing services with Docker and support
 
 <h2 id="features">🔥 Features</h2>
 
++ **Custom Modal:** Includes a custom modal component with configurable actions to enhance user interaction.
 + **TLS/HTTPS:** Centeralized TLS/HTTPS support for all services with selfsigned certificate.
 + **Traefik Integration:** Integration with Traefik for efficient load balancing and port forwarding within the application's microservices architecture.
 + **External Communication:** Manages communication between backend and email service.
