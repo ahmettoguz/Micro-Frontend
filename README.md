@@ -1,4 +1,4 @@
-<h1 id="top" align="center">🚢 Release Version 2.2.0</h1> 
+<h1 id="top" align="center">🚢 Release Version 2.3.0</h1> 
 
 <br/>
 
@@ -14,6 +14,7 @@
 
 <h2 id="features">🔥 Features</h2>
 
++ **Custom Modal:** Includes a custom modal component with configurable actions to enhance user interaction.
 + **TLS/HTTPS:** Centeralized TLS/HTTPS support for all services with selfsigned certificate.
 + **Traefik Integration:** Integration with Traefik for efficient load balancing and port forwarding within the application's microservices architecture.
 + **External Communication:** Manages communication between backend and email service.
