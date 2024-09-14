@@ -14,6 +14,7 @@ import { t } from "i18next";
 import { useState } from "react";
 import { useSnackbarUtils } from "../../utils/useSnackbarUtils";
 import { XLoadingButton } from "../core/components/XLoadingButton";
+import { emailUrl } from "../../utils/envVars";
 
 export default function EmailForm() {
   const { showSnackbar } = useSnackbarUtils();
@@ -72,14 +73,11 @@ export default function EmailForm() {
     setLoading(true);
 
     try {
-      const response = await axios.post(
-        "http://localhost:8082/email/service/send",
-        {
-          subject: "Support Mail",
-          recipients: emailReceivers,
-          body: content,
-        }
-      );
+      const response = await axios.post(`${emailUrl}/service/send`, {
+        subject: "Support Mail",
+        recipients: emailReceivers,
+        body: content,
+      });
       console.log("Response:", response.data);
 
       showSnackbar(t("emailService.snackbar.sentSuccess"), "success");
