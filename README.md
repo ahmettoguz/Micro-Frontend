@@ -32,7 +32,7 @@
 + **Responsive Design:** Optimized for different screen sizes and devices.
 + **Material-UI Integration:** Extensive use of Material-UI components.
 + **Environment Variables:** Support for environment variables to manage configurations.
-+ **Docker Containerization:** The application has been containerized using Docker.
++ **Dockerization:** The application is containerized for consistent deployment and scaling.
 + **Backend Integration:** Integration with the backend service.
 
 <br/>
