@@ -1,4 +1,4 @@
-<h1 id="top" align="center">🚢 Release Version 2.3.0</h1> 
+<h1 id="top" align="center">🚢 Release Version 2.3.1</h1> 
 
 <br/>
 
@@ -72,4 +72,4 @@ docker rm -f micro-frontend-container
 
 1. Follow the instructions in the [`Micro-Docker-Config repository`](https://github.com/ahmettoguz/Micro-Docker-Config) to configure Docker for production.
 
-[🔝](#top)
+### [🔝](#top)
