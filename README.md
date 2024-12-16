@@ -19,9 +19,9 @@
 + **Traefik Integration:** Integration with Traefik for efficient load balancing and port forwarding within the application's microservices architecture.
 + **External Communication:** Manages communication between backend and email service.
 + **Global State Management:** Redux implementation for consistent state handling across the application.
-+ **Persistent Settings:** Language, theme mode, and theme schema are stored in localStorage.
++ **Persistent Data:** Language, theme mode, and theme schema are stored in localStorage.
 + **Internationalization:** Language support with i18n for a multilingual user experience.
-+ **Custom Scrollbar Design:** Unique scrollbar styling to match the application's aesthetic.
++ **Custom Scrollbar Design:** Custom scrollbar styling to match the application's aesthetic.
 + **Floating Action Button:** A "Go to Top" button for improved navigation.
 + **Multi-Message Snackbar:** Support for displaying multiple snackbars using notistack.
 + **Professional UI/UX:** Modern user interface and experience.
@@ -33,7 +33,6 @@
 + **Material-UI Integration:** Extensive use of Material-UI components.
 + **Environment Variables:** Support for environment variables to manage configurations.
 + **Dockerization:** The application is containerized for consistent deployment and scaling.
-+ **Backend Integration:** Integration with the backend service.
 
 <br/>
 
@@ -51,19 +50,8 @@
 #### Using command line
 
 ```
+npm i
 npm run dev
-```
-
-#### Using Docker
-
-```
-docker build -t micro-frontend-image .
-
-docker run -d -p 8080:80 --name micro-frontend-container micro-frontend-image
-
-docker ps -a
-
-docker rm -f micro-frontend-container
 ```
 
 <br/>
