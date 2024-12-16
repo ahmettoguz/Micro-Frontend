@@ -4,20 +4,25 @@
 
 ## 🔍 Table of Contents
 
+- [Software Versions](#software-versions)
 - [Features](#features)
 - [Next Release Features](#next-release-features)
 - [System Startup](#system-startup)
   - [Developer Mode](#developer-mode)
   - [Production Mode](#production-mode)
- 
+<br/>
+
+<h2 id="software-versions">🏷️ Software Versions</h2>
+
+| Software     | Version    |
+|--------------|------------|
+| NodeJS       | 22.11.0    |
+| npm          | 10.8.3     |
 <br/>
 
 <h2 id="features">🔥 Features</h2>
 
 + **Custom Modal:** Includes a custom modal component with configurable actions to enhance user interaction.
-+ **TLS/HTTPS:** Centeralized TLS/HTTPS support for all services with selfsigned certificate.
-+ **Traefik Integration:** Integration with Traefik for efficient load balancing and port forwarding within the application's microservices architecture.
-+ **External Communication:** Manages communication between backend and email service.
 + **Global State Management:** Redux implementation for consistent state handling across the application.
 + **Persistent Data:** Language, theme mode, and theme schema are stored in localStorage.
 + **Internationalization:** Language support with i18n for a multilingual user experience.
@@ -60,4 +65,4 @@ npm run dev
 
 1. Follow the instructions in the [`Micro-Docker-Config repository`](https://github.com/ahmettoguz/Micro-Docker-Config) to configure Docker for production.
 
-### [🔝](#top)
+[🔝](#top)
