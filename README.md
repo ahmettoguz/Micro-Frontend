@@ -125,7 +125,7 @@ npm run dev
 
 <h3 id="production-mode">⚡Production Mode</h3> 
 
-1. Follow the instructions in the [`Micro-Docker-Config repository`](https://github.com/ahmettoguz/Micro-Docker-Config) to configure Docker for production.
+* Follow the instructions in the [`Micro-Docker-Config repository`](https://github.com/ahmettoguz/Micro-Docker-Config) to configure Docker for production.
 
 <br/>
 
