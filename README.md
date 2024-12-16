@@ -10,6 +10,7 @@
 
 - [About Project](#intro)
 - [Technologies](#technologies)
+- [Software Versions](#software-versions)
 - [Features](#features)
 - [Releases](#releases)
 - [System Startup](#system-startup)
@@ -60,6 +61,15 @@ The React UI Interface project offers an interactive front-end, containerized wi
 &nbsp; [![NodeJs](https://img.shields.io/badge/Node%20js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org)
 
 &nbsp; [![NPM](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/)
+
+<br/>
+
+<h2 id="software-versions">🏷️ Software Versions</h2>
+
+| Software     | Version    |
+|--------------|------------|
+| NodeJS       | 22.11.0    |
+| npm          | 10.8.3     |
 
 <br/>
 
