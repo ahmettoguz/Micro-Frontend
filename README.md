@@ -110,7 +110,6 @@ The React UI Interface project offers an interactive front-end, containerized wi
 
 <br/>
 
-
 <h2 id="system-startup">🚀 System Startup</h2> 
 
 <h3 id="developer-mode">🧪 Developer Mode</h3>
